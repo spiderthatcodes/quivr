@@ -24,5 +24,3 @@ def launch_details():
             "min": "00",
         }
     }
-
-# checking precommit
