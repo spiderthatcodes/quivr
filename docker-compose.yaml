@@ -1,8 +1,16 @@
-# volumes:
+volumes:
+  mongo-data:
+    external: true
+
 services:
+  mongo:
+    image: mongo:5
+    volumes:
+      - mongo-data:/data/db
   fastapi:
     environment:
       CORS_HOST: http://localhost:3000
+      DATABASE_URL: ${CONNECTION_STRING}
     build:
       context: api
       dockerfile: Dockerfile.dev
