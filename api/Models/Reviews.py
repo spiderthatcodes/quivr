@@ -1,12 +1,20 @@
-from pydantic import BaseModel
-from datetime import date
+from typing import Optional
+from pydantic import BaseModel, Field
 
 
-class Review(BaseModel):
+class Reviews(BaseModel):
     rating: int
-    title: str(max_length=25)
-    description: str(max_length=50)
-    date: date
-    # order_id?
-    # user_id?
-    # shaper_id?
+    title: str = Field(...)
+    description: str = Field(...)
+    # date_time: date
+
+
+#     # order_id?
+#     # user_id?
+#     # shaper_id?
+
+
+class ReviewsUpdate(BaseModel):
+    title: Optional[str]
+    description: Optional[str]
+    rating: Optional[str]
