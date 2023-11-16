@@ -10,7 +10,9 @@ services:
     fastapi:
         environment:
             CORS_HOST: http://localhost:3000
-            DATABASE_URL: ${CONNECTION_STRING}
+            MONGO_URL: ${CONNECTION_STRING}
+            MONGO_DB: quivr-db
+            SIGNING_KEY: ${SIGNING_KEY}
         build:
             context: api
             dockerfile: Dockerfile.dev
