@@ -1,5 +1,5 @@
 from queries.client import MongoQueries
-from models.Accounts import AccountIn, AccountOutWithHashedPassword
+from models.accounts import AccountIn, AccountOutWithHashedPassword
 
 
 class DuplicateAccountError(ValueError):
