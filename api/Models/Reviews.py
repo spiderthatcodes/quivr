@@ -20,5 +20,3 @@ class ReviewsUpdate(BaseModel):
     title: Optional[str]
     description: Optional[str]
     rating: Optional[str]
-
-

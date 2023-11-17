@@ -41,12 +41,12 @@ def list_reviews(request: Request):
 
 
 @router.get(
-    "/reviews/{id}", response_description="Get a review by id", response_model=Reviews
+    "/reviews/{id}",
+    response_description="Get a review by id",
+    response_model=Reviews,
 )
 def find_review(id: str, request: Request):
-    if (
-        review := request.app.db["reviews"].find_one({"_id": id})
-    ) is not None:
+    if (review := request.app.db["reviews"].find_one({"_id": id})) is not None:
         return review
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND,
@@ -55,7 +55,9 @@ def find_review(id: str, request: Request):
 
 
 @router.put(
-    "/reviews/{id}", response_description="Update review", response_model=Reviews
+    "/reviews/{id}",
+    response_description="Update review",
+    response_model=Reviews,
 )
 def update_book(id: str, request: Request, review: ReviewsUpdate = Body(...)):
     review = {k: v for k, v in review.dict().items() if v is not None}
@@ -70,9 +72,7 @@ def update_book(id: str, request: Request, review: ReviewsUpdate = Body(...)):
                 detail=f"Review with id {id} not found",
             )
     if (
-        existing_review := request.app.db["reviews"].find_one(
-            {"_id": id}
-        )
+        existing_review := request.app.db["reviews"].find_one({"_id": id})
     ) is not None:
         return existing_review
     raise HTTPException(
