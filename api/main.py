@@ -20,6 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 DATABASE_URL = os.environ.get("DATABASE_URL")
 DB_NAME = os.environ.get("DB_NAME")
 
