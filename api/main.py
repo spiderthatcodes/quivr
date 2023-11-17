@@ -20,18 +20,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# os.getenv("digit_key")
-
 DATABASE_URL = os.environ.get("DATABASE_URL")
 DB_NAME = os.environ.get("DB_NAME")
 
-# print("DB URL=", DATABASE_URL)
-# print("DB NAME=", DB_NAME)
 
 app.client = MongoClient(DATABASE_URL)
 app.db = app.client[DB_NAME]
-
-# print("!!!!!!!!!!!", app.db)
 
 
 # Test:

@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+
 import uuid
 from datetime import date
 from typing import Literal, Optional
@@ -12,6 +13,14 @@ glassing_styles = Literal[
     "4 + 4 x 4", "6 + 4 x 4", "6 + 4 x 6", "6 + 6 x 6", "Other"
 ]
 
+status_options = Literal[
+    "Order received!",
+    "Foam being cut!",
+    "Board sent to glassing",
+    "Board complete",
+    "Board shipped",
+]
+
 
 # Do we want to validate measurements here??
 # (Eg: round int entries to 2 decimal places??)
@@ -20,6 +29,7 @@ glassing_styles = Literal[
 class Order(BaseModel):
     id: str = Field(default_factory=uuid.uuid4, alias="_id")
     date: date
+    order_status: status_options
     price: int = Field(...)
     tax: int = Field(...)
     shipping: int | None
@@ -31,7 +41,7 @@ class Order(BaseModel):
     surfboard_thickness: float = Field(..., le=4.0)
     surfboard_construction: Literal["PU", "EPS", "XTR", "Other"]
     surfboard_fin_system: Literal["FCS1", "FCS2", "Futures", "Other"]
-    surfboard_fin_count: Literal["5", "4", "3", "2", "1"]
+    surfboard_fin_count: Literal[5, 4, 3, 2, 1]
     surfboard_tail_style: tail_styles
     surfboard_glassing: glassing_styles
     surfboard_desc: str | None
@@ -41,19 +51,5 @@ class Order(BaseModel):
 
 
 class OrderUpdate(BaseModel):
-    date: Optional[date]
-    price: Optional[int]
-    tax: Optional[int]
-    shipping: Optional[int]
-    surf_shop_dest: Optional[str]
-    surfboard_shaper: Optional[str]
-    surfboard_model: Optional[str]
-    surfboard_length: Optional[float]
-    surfboard_width: Optional[float]
-    surfboard_thickness: Optional[float]
-    surfboard_construction: Optional[str]
-    surfboard_fin_system: Optional[str]
-    surfboard_fin_count: Optional[int]
-    surfboard_tail_style: Optional[str]
-    surfboard_glassing: Optional[str]
-    surfboard_desc: Optional[str]
+    order_status: status_options
+    # json_encoders = {ObjectId: str}
