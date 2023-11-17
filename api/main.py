@@ -7,6 +7,7 @@ from pymongo import MongoClient
 
 
 from routes.orders import router as order_router
+from routes.reviews import router as reviews_router
 
 
 app = FastAPI()
@@ -35,6 +36,7 @@ def launch_details():
     return {"Poke": "Mon"}
 
 
+app.include_router(reviews_router, tags=["reviews"])
 app.include_router(authenticator.router, tags=["Auth"])
 app.include_router(accounts.router, tags=["Auth"])
 app.include_router(order_router, tags=["orders"])
