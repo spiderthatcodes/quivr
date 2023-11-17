@@ -5,6 +5,7 @@ from fastapi import (
     Depends,
     HTTPException,
     status,
+    Body,
 )
 from models.accounts import (
     AccountToken,
@@ -12,9 +13,11 @@ from models.accounts import (
     AccountIn,
     AccountForm,
     AccountOut,
+    AccountUpdate,
 )
 from queries.accounts import AccountQueries, DuplicateAccountError
 from authenticator import authenticator
+from typing import List
 
 
 router = APIRouter()
@@ -51,3 +54,54 @@ async def get_token(
             "type": "Bearer",
             "account": account,
         }
+
+
+@router.get("/api/accounts", response_model=List[AccountOut])
+def list_accounts(request: Request):
+    accounts = list(request.app.db["accounts"].find())
+    return accounts
+
+
+@router.get("/api/accounts/{role}", response_model=List[AccountOut])
+def list_accounts_by_role(request: Request, role: str):
+    accounts = list(request.app.db["accounts"].find({"role": role}))
+    return accounts
+
+
+@router.put("/api/accounts/{username}", response_model=AccountOut)
+def update_account(
+    request: Request, username: str, account: AccountUpdate = Body(...)
+):
+    account = {k: v for k, v in account.dict().items() if v is not None}
+
+    if len(account) >= 1:
+        update_result = request.app.db["accounts"].update_one(
+            {"username": username}, {"$set": account}
+        )
+
+        if update_result.modified_count == 0:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Account with username {username} not found",
+            )
+
+    if (
+        existing_account := request.app.db["accounts"].find_one(
+            {"username": username}
+        )
+    ) is not None:
+        return existing_account
+
+    # else:
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail=f"Account with username {username} not found",
+    )
+
+
+@router.delete("/api/accounts/{username}")
+def delete_account(request: Request, username: str):
+    account = request.app.db["accounts"].delete_one({"username": username})
+    if account:
+        return True
+    raise HTTPException(404, "Account does not exist")
