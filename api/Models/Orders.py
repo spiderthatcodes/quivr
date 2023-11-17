@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 
 import uuid
 from datetime import date
-from typing import Literal, Optional
+from typing import Literal
 
 
 tail_styles = Literal[
