@@ -2,7 +2,7 @@ import os
 from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
 from queries.accounts import AccountQueries
-from models.Accounts import AccountOutWithHashedPassword, AccountOut
+from models.accounts import AccountOutWithHashedPassword, AccountOut
 
 
 class QuivrAuthenticator(Authenticator):
