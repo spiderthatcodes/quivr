@@ -3,6 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from authenticator import authenticator
 from routes import accounts
 import os
+from pymongo import MongoClient
+
+
+from routes.orders import router as order_router
 
 
 app = FastAPI()
@@ -16,11 +20,26 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# os.getenv("digit_key")
 
-app.include_router(authenticator.router, tags=["Auth"])
-app.include_router(accounts.router, tags=["Auth"])
+DATABASE_URL = os.environ.get("DATABASE_URL")
+DB_NAME = os.environ.get("DB_NAME")
+
+# print("DB URL=", DATABASE_URL)
+# print("DB NAME=", DB_NAME)
+
+app.client = MongoClient(DATABASE_URL)
+app.db = app.client[DB_NAME]
+
+# print("!!!!!!!!!!!", app.db)
 
 
+# Test:
 @app.get("/api/launch-details")
 def launch_details():
     return {"Poke": "Mon"}
+
+
+app.include_router(authenticator.router, tags=["Auth"])
+app.include_router(accounts.router, tags=["Auth"])
+app.include_router(order_router, tags=["orders"])
