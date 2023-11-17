@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-
 import uuid
 from datetime import date
 from typing import Literal

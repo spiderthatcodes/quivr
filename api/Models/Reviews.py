@@ -8,12 +8,6 @@ class Reviews(BaseModel):
     rating: int
     title: str = Field(...)
     description: str = Field(...)
-    # date_time: date
-
-
-#     # order_id?
-#     # user_id?
-#     # shaper_id?
 
 
 class ReviewsUpdate(BaseModel):
