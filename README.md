@@ -11,6 +11,13 @@ The surfing industry is projected to hit $10B in global sales by 2030. Meanwhile
 
 QUIVR steps in by streamlining the ordering process: orders are placed directly through the app, and shapers can send status updates directly to customers. This removes the burden from the surf shop of having to mediate the process, as well as greatly reducing the margin for errors to occur in the ordering process. 
 
+### User Profiles:
+![User_Profile_1](/uploads/79b15a44f94714d26a21361c4c621dfb/User_Profile_1.png)
+
+![User_Profile_2](/uploads/9e88df126f4a751ab31ddcd4dfc19ef8/User_Profile_2.png)
+
+![User_Profile_3](/uploads/3d0c80fceb4133e64e95206da53911d8/User_Profile_3.png)
+
 ### Technical Details:
 This project was built using MongoDB with FastAPI and pyMongo for the backend, with an Atlas Cloud database. JWT-Down was used for backend Auth, and Docker is used for creating a stable environment to deploy the project in. React was used for the front end, along with help from Redux and Axios, as well as styled components.
 
