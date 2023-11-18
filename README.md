@@ -1,141 +1,59 @@
-# Module3 Project Gamma
+# QUIVR: custom surfboard ordering made easy
 
-## Getting started
+### Problem Statement:
 
-You have a project repository, now what? The next section
-lists all of the deliverables that are due at the end of the
-week. Below is some guidance for getting started on the
-tasks for this week.
+This application is designed to connect 3 types of users: 
+- Customers 
+- Surf shops
+- Surfboard shapers
 
-## Install Extensions
+The surfing industry is projected to hit $10B in global sales by 2030. Meanwhile the custom surfboard ordering process remains stuck in the past, and rife with problems. Typically a customer places an order through a surfshop, and the surfshop places the order with the shaper. The customer has no visibility into this process once the order is placed, and rarely receives confirmation that the shaper has even received the order! From there it is anyone's guess on when the board will be finished, and in what state the order is in. Often mistakes are made, and the customer ends up receiving something different than what they ordered.
 
-- Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-- Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
+QUIVR steps in by streamlining the ordering process: orders are placed directly through the app, and shapers can send status updates directly to customers. THis removes the burden from the surf shop of having to manage the relationship, as well as greatly reducing the margin for errors to occur in the ordering process.
 
-## Deliverables
+### Technical Details:
+This project was built using MongoDB with FastAPI for the backend, with an Atlas Cloud database. JWT Down was used for backend Auth, and Docker is used for creating a stable environment to deploy the project in. React was used for the front end, along with help from Redux and Axios, as well as styled components.
 
-- [ ] Wire-frame diagrams
-- [ ] API documentation
-- [ ] Project is deployed to Caprover (BE, DB) & GitLab-pages (FE)
-- [ ] GitLab issue board is setup and in use (or project management tool of choice)
-- [ ] Journals
+:no_entry_sign:	Absolutely NO bootsrap or comparable style libraries were used in the creation of this project.
 
-## Project layout
+### Team:
+* Jessica Dickerson - Backend Auth, Users backend, React frontend, frontend style structure
+* Michael Aguilar - Reviews backend, React and Redux frontend, UI and Graphic Design
+* Ian Norstad - Orders and Invoices backend, React and Redux frontend, UI and Graphic Design
 
-The layout of the project is just like all of the projects
-you did with `docker-compose` in module #2. You will create
-a directory in the root of the repository for each service
-that you add to your project just like those previous
-projects were setup.
 
-### Directories
+## Running the Project
 
-Several directories have been added to your project. The
-directories `docs` and `journals` are places for you and
-your team-mates to, respectively, put any documentation
-about your project that you create and to put your
-project-journal entries. See the _README.md_ file in each
-directory for more info.
+1. Fork and clone the repository
+2. From terminal cd into the project directory
+3. Make sure Docker desktop is running, and run the following commands in your terminal:
+- docker volume create quivr-data
+- docker-compose build
+- docker-compose up
 
-The other directories, `ghi` and `api`, are services, that
-you can start building off of.
+_Disregard a potential error that may pop-up related to 'missing an environment variable.' This does not affect performance_
 
-Inside of `ghi` is a minimal React app that has an "under
-construction" page. It is setup similarly to all of the
-other React projects that you have worked on.
+To view the project, open http://localhost:3000/ in your browser
 
-Inside of `api` is a minimal FastAPI application.
-"Where are all the files?" you might ask? Well, the
-`main.py` file is the whole thing, and go take look inside
-of it... There's not even much in there..., hmm? That is
-FastAPI, we'll learn more about it in the coming days. Can
-you figure out what this little web-application does even
-though you haven't learned about FastAPI yet?
+# App Design
 
-Also in `api` is a directory for your migrations.
-If you choose to use PostgreSQL, then you'll want to use
-migrations to control your database. Unlike Django, where
-migrations were automatically created for you, you'll write
-yours by hand using DDL. Don't worry about not knowing what
-DDL means; we have you covered. There's a sample migration
-in there that creates two tables so you can see what they
-look like.
 
-The Dockerfile and Dockerfile.dev run your migrations
-for you automatically.
 
-### Other files
 
-The following project files have been created as a minimal
-starting point. Please follow the guidance for each one for
-a most successful project.
+### Backend Auth
 
-- `docker-compose.yaml`: there isn't much in here, just a
-  **really** simple UI and FastAPI service. Add services
-  (like a database) to this file as you did with previous
-  projects in module #2.
-- `.gitlab-ci.yml`: This is your "ci/cd" file where you will
-  configure automated unit tests, code quality checks, and
-  the building and deployment of your production system.
-  Currently, all it does is deploy an "under construction"
-  page to your production UI on GitLab and a sample backend
-  to CapRover. We will learn much more about this file.
-- `.gitignore`: This is a file that prevents unwanted files
-  from getting added to your repository, files like
-  `pyc` files, `__pycache__`, etc. We've set it up so that
-  it has a good default configuration for Python projects.
-- `.env.sample`: This file is a template to copy when
-  creating environment variables for your team. Create a
-  copy called `.env` and put your own passwords in here
-  without fear of it being committed to git (see `.env`
-  listed in `.gitignore`). You can also put team related
-  environment variables in here, things like api and signing
-  keys that shouldn't be committed; these should be
-  duplicated in your deployed environments.
+### Users Model
 
-## How to complete the initial deploy
+### Reviews Model
 
-There will be further guidance on completing the initial
-deployment, but it just consists of these steps:
+### Orders Model
 
-### Setup GitLab repo/project
+### Invoices Model
 
-- make sure this project is in a group. If it isn't, stop
-  now and move it to a GitLab group
-- remove the fork relationship: In GitLab go to:
 
-  Settings -> General -> Advanced -> Remove fork relationship
+## Endpoints
 
-- add these GitLab CI/CD variables:
-  - PUBLIC_URL : this is your gitlab pages URL
-  - REACT_APP_API_HOST: enter "blank" for now
 
-#### Your GitLab pages URL
 
-You can't find this in GitLab until after you've done a deploy
-but you can figure it out yourself from your GitLab project URL.
 
-If this is your project URL
 
-https://gitlab.com/GROUP_NAME/PROJECT_NAME
-
-then your GitLab pages URL will be
-
-https://GROUP_NAME.gitlab.io/PROJECT_NAME
-
-### Initialize CapRover
-
-1. Attain IP address and domain from an instructor
-1. Follow the steps in the CD Cookbook in Learn.
-
-### Update GitLab CI/CD variables
-
-Copy the service URL for your CapRover service and then paste
-that into the value for the REACT_APP_API_HOST CI/CD variable
-in GitLab.
-
-### Deploy it
-
-Merge a change into main to kick off the initial deploy. Once the build pipeline
-finishes you should be able to see an "under construction" page on your GitLab
-pages site.
