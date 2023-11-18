@@ -9,7 +9,7 @@ This application is designed to connect 3 types of users:
 
 The surfing industry is projected to hit $10B in global sales by 2030. Meanwhile the custom surfboard ordering process remains stuck in the past, and rife with problems. Typically a customer places an order through a surfshop, and the surfshop places the order with the shaper. The customer has no visibility into this process once the order is placed, and rarely receives confirmation that the shaper has even received the order! From there it is anyone's guess on when the board will be finished, and in what state the order is in. Often mistakes are made, and the customer ends up receiving something different than what they ordered.
 
-QUIVR steps in by streamlining the ordering process: orders are placed directly through the app, and shapers can send status updates directly to customers. THis removes the burden from the surf shop of having to manage the relationship, as well as greatly reducing the margin for errors to occur in the ordering process.
+QUIVR steps in by streamlining the ordering process: orders are placed directly through the app, and shapers can send status updates directly to customers. This removes the burden from the surf shop of having to mediate the process, as well as greatly reducing the margin for errors to occur in the ordering process. 
 
 ### Technical Details:
 This project was built using MongoDB with FastAPI for the backend, with an Atlas Cloud database. JWT Down was used for backend Auth, and Docker is used for creating a stable environment to deploy the project in. React was used for the front end, along with help from Redux and Axios, as well as styled components.
