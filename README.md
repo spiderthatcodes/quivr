@@ -21,7 +21,7 @@ QUIVR steps in by streamlining the ordering process: orders are placed directly 
 ### Technical Details:
 This project was built using MongoDB with FastAPI and pyMongo for the backend, with an Atlas Cloud database. JWT-Down was used for backend Auth, and Docker is used for creating a stable environment to deploy the project in. React was used for the front end, along with help from Redux to carefully manage state, and Axios to fetch the data, as well as styled components for cleanly managing styles.
 
-:no_entry_sign:	Absolutely NO bootsrap or comparable style libraries were used in the creation of this project.
+:no_entry_sign:	Absolutely NO bootstrap or comparable style libraries were used in the creation of this project.
 
 ### Team:
 * Jessica Dickerson - Backend Auth, Users backend, React frontend, frontend style structure
