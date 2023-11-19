@@ -42,10 +42,11 @@ _Disregard a potential error that may pop-up related to 'missing an environment 
 
 To view the project, open http://localhost:3000/ in your browser
 
-# App Design
+## App Design
 ![Application_Architecture](/uploads/4005e5365eaf00718162d2b959c73112/Application_Architecture.png)
 
-
+## Endpoints
+![Application_Endpoints](/uploads/3177531b716057d42757a1a0542748e7/Application_Endpoints.png)
 
 ### Backend Auth
 
@@ -58,7 +59,7 @@ To view the project, open http://localhost:3000/ in your browser
 ### Invoices Model
 
 
-## Endpoints
+
 
 
 
