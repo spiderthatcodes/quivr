@@ -1,3 +1,15 @@
+## Nov 17, 2023
+
+Today, I worked on:
+
+- 3/4 of the CRUD for Orders was working by EOD yesterday. Today I can only POST, but can not GET or PUT. THe code has not changed significanty. After troubleshooting this for hours, we discovered that because I had made a minor modification to one of the model attributes, the existing records in the DB were essentially corrupted. We had to drop the DB, then rebuild it, and voila. Full CRUD.
+
+## Nov 16, 2023
+
+Today, I worked on:
+
+- Docker issues out the wazoo. Whatever that is. Doecker was not picking up our .env files, so we had to rename the files, discard all containers and images, then rebuild with the new file name. Then change the name back to .env and discard the image and containers, then rebuild again. Party.
+
 ## Nov 15, 2023
 
 Today, I worked on:
