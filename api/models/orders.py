@@ -3,8 +3,6 @@ import uuid
 from datetime import date
 from typing import Literal
 
-# from bson import ObjectId
-
 
 tail_styles = Literal[
     "squash", "round", "pin", "diamond", "fish", "swallow", "asym"
@@ -26,21 +24,12 @@ status_options = Literal[
 # Do we want to validate measurements here??
 # (Eg: round int entries to 2 decimal places??)
 
-# How do we want to handle shipping location? -> cust_address | surf_shop
-
 
 class Order(BaseModel):
     # id: ObjectId = Field(default_factory=ObjectId, alias="_id")
     id: str = Field(default_factory=uuid.uuid4, alias="_id")
     date: date
     order_status: status_options
-    price: int = Field(...)
-    # MOVE TAX TO INVOICE #############
-    tax: int = Field(...)
-    # MOVE SHIPPING TO INVOICE #############
-    shipping: int | None
-    # CHANGE TO: delivery_loc: str = Field(...) #############
-    surf_shop_dest: str | None
     surfboard_shaper: str = Field(...)
     surfboard_model: str = Field(...)
     surfboard_length: float = Field(..., le=13)

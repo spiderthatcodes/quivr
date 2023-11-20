@@ -11,9 +11,7 @@ unit price,
 board details: shaper name, board length, width, height, construction
 
 How are we going to do that here?
-
-delivery_loc = either the address associated with the Customer,
-or a Surf Shop address (by way of _id)
+(see order_id below)
 
 """
 
@@ -23,7 +21,8 @@ class Invoice(BaseModel):
     date: date
     num_of_items: int = Field(...)
     unit_price: int = Field(...)
+    shipping: int | None
+    tax: float = Field(...)
     total_price: int = Field(...)
-    delivery_loc: str = Field(...)
     order_id: str = Field(...)
     user_id: str = Field(...)
