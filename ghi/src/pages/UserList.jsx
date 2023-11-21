@@ -1,7 +1,8 @@
 import React from 'react';
+import { Wrapper } from './style';
 
 const UserList = () => {
-    return <div>UserList</div>;
+    return <Wrapper>UserList</Wrapper>;
 };
 
 export default UserList;
