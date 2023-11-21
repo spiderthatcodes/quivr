@@ -1,7 +1,8 @@
 import React from 'react';
+import { Wrapper } from './style';
 
 const OrderDetails = () => {
-    return <div>OrderDetails</div>;
+    return <Wrapper>OrderDetails</Wrapper>;
 };
 
 export default OrderDetails;

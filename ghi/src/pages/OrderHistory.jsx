@@ -1,7 +1,8 @@
 import React from 'react';
+import { Wrapper } from './style';
 
 const OrderHistory = () => {
-    return <div>OrderHistory</div>;
+    return <Wrapper>OrderHistory</Wrapper>;
 };
 
 export default OrderHistory;
