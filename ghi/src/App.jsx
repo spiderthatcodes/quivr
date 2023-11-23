@@ -5,7 +5,6 @@ import Cart from './pages/Cart.jsx';
 import OrderHistory from './pages/OrderHistory.jsx';
 import OrderDetails from './pages/OrderDetails.jsx';
 import UserList from './pages/UserList.jsx';
-// import './App.css';
 
 function App() {
     return (
