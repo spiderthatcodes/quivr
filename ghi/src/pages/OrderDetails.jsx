@@ -2,7 +2,11 @@ import React from 'react';
 import { Wrapper } from './style';
 
 const OrderDetails = () => {
-    return <Wrapper>OrderDetails</Wrapper>;
+    return (
+        <Wrapper>
+            <h1>Order Details</h1>
+        </Wrapper>
+    );
 };
 
 export default OrderDetails;
