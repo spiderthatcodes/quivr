@@ -30,6 +30,7 @@ class Order(BaseModel):
     id: str = Field(default_factory=uuid.uuid4, alias="_id")
     date: date
     order_status: status_options
+    customer_id: str = Field(...)
     surfboard_shaper: str = Field(...)
     surfboard_model: str = Field(...)
     surfboard_length: float = Field(..., le=13)
