@@ -2,14 +2,14 @@
 
 ### Problem Statement:
 
-This application is designed to connect 3 types of users: 
-- Customers 
+This application is designed to connect 3 types of users:
+- Customers
 - Surf shops
 - Surfboard shapers
 
 The surfing industry is projected to hit $10B in global sales by 2030. Meanwhile the custom surfboard ordering process remains stuck in the past, and rife with problems. Typically a customer places an order through a surfshop, and the surfshop places the order with the shaper. The customer has no visibility into this process once the order is placed, and rarely receives confirmation that the shaper has even received the order! From there it is anyone's guess on when the board will be finished, and in what state the order is in. Often mistakes are made, and the customer ends up receiving something different than what they ordered.
 
-QUIVR steps in by streamlining the ordering process: orders are placed directly through the app, and shapers can send status updates directly to customers. This removes the burden from the surf shop of having to mediate the process, as well as greatly reducing the margin for errors to occur in the ordering process. 
+QUIVR steps in by streamlining the ordering process: orders are placed directly through the app, and shapers can send status updates directly to customers. This removes the burden from the surf shop of having to mediate the process, as well as greatly reducing the margin for errors to occur in the ordering process.
 
 ### User Profiles:
 ![User_Profile_1](/uploads/79b15a44f94714d26a21361c4c621dfb/User_Profile_1.png)
@@ -53,15 +53,15 @@ To view the project, open http://localhost:3000/ in your browser
 ### Users Model
 
 ### Reviews Model
+The Reviews module provides a model for representing reviews. It includes attributes such as id, rating, title, and description.There is also a Update model as well which you can update the following "Title","Rating","Description".
+
+Attributes
+Id - A unique identifier for the review, automatically generated using uuid4.
+Rating - An integer that allows you the give the review rating.
+Title - A string that you can write a review title.
+Description - A string that allows you to write a review description.
+
 
 ### Orders Model
 
 ### Invoices Model
-
-
-
-
-
-
-
-
