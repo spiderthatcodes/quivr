@@ -33,7 +33,6 @@ def create_order(request: Request, order: Order = Body(...)):
 )
 def list_orders(request: Request):
     orders = list(request.app.db["orders"].find(limit=10))
-    print("!!!!!!!!!", len(orders))
     return orders
 
 
