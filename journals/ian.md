@@ -1,3 +1,17 @@
+## Nov 21, 2023
+
+Today, I worked on:
+
+- Reconfigured ORDERS, INVOICES, and REVIEWS models. Unit tests for ORDERS and INVOICES.
+- I sync'd up our DB in VS CODE so I can now delete documents directly every time I make a change to the models (which hopefully not be much more. LOOOLLL)
+
+## Nov 20, 2023
+
+Today, I worked on:
+
+- Added INVOICES models and CRUD routes. It's going much easier once you figure out what pydantic wants. Coming to Mongo from SQL db's is going to be an interesting transition-- THERE ARE NO FOREIGN KEYS, and the documents can have any kind of data they want! The next battle on this front is going to be actually putting these models to work, and making sure they are performing best for us. Hello aggregate pipelines, schema validation, embedding documents, etc... WELCOME TO MONGO
+- We also had a standup today to assign out all tasks and expectations for work to be done over the holiday break. Let's give a nice round of applause for ORGANIZATION
+
 ## Nov 17, 2023
 
 Today, I worked on:

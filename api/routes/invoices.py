@@ -1,9 +1,7 @@
 from fastapi import APIRouter, Body, Request, HTTPException, status
 from fastapi.encoders import jsonable_encoder
 from typing import List
-
 from models.invoices import Invoice
-
 
 router = APIRouter()
 
@@ -21,7 +19,6 @@ def create_invoice(request: Request, invoice: Invoice = Body(...)):
     created_invoice = request.app.db["invoices"].find_one(
         {"_id": new_invoice.inserted_id}
     )
-
     return created_invoice
 
 
