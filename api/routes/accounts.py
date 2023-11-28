@@ -23,7 +23,7 @@ from typing import List
 router = APIRouter()
 
 
-@router.post("/api/accounts", response_model=AccountToken | HttpError)
+@router.post("/accounts", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
     request: Request,
@@ -57,19 +57,31 @@ async def get_token(
         }
 
 
-@router.get("/api/accounts", response_model=List[AccountOut])
+@router.get("/accounts", response_model=List[AccountOut])
 def list_accounts(request: Request):
     accounts = list(request.app.db["accounts"].find())
     return accounts
 
 
-@router.get("/api/accounts/{role}", response_model=List[AccountOut])
+@router.get("/accounts/{role}", response_model=List[AccountOut])
 def list_accounts_by_role(request: Request, role: str):
     accounts = list(request.app.db["accounts"].find({"role": role}))
     return accounts
 
 
-@router.put("/api/accounts/{username}", response_model=AccountOut)
+@router.get("/accounts/username/{username}", response_model=AccountOut)
+def get_account_by_username(request: Request, username: str):
+    if (
+        account := request.app.db["accounts"].find_one({"username": username})
+    ) is not None:
+        return account
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail=f"Account with username {username} not found",
+    )
+
+
+@router.put("/accounts/{username}", response_model=AccountOut)
 def update_account(
     request: Request, username: str, account: AccountUpdate = Body(...)
 ):
@@ -100,7 +112,7 @@ def update_account(
     )
 
 
-@router.delete("/api/accounts/{username}")
+@router.delete("/accounts/{username}")
 def delete_account(request: Request, username: str):
     account = request.app.db["accounts"].delete_one({"username": username})
     if account:

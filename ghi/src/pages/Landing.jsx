@@ -1,15 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLoginMutation } from '../app/authSlice';
+import { useNavigate } from 'react-router-dom';
 import { Wrapper, SignUp, AccountForm } from './style';
 
 const Landing = () => {
-    const [login, setlogin] = useState(true);
+    const navigate = useNavigate();
+    const [loggingIn, setLoggingIn] = useState(true);
+    const [login, loginResponse] = useLoginMutation();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    console.log(errorMessage);
+
+    useEffect(() => {
+        if (loginResponse.isSuccess) navigate('/order-history');
+        if (loginResponse.isError) {
+            setErrorMessage(loginResponse.error.data.detail);
+        }
+    }, [loginResponse, navigate]);
+
+    const handleLogin = () => {
+        // e.preventDefault();
+        login({ username, password });
+    };
 
     return (
         <Wrapper>
             <AccountForm>
-                Username: <input type='text' />
+                Username:
+                <input
+                    type='text'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
                 <br />
-                {!login && (
+                {!loggingIn && (
                     <>
                         Email: <input type='text' />
                         <br />
@@ -21,11 +47,11 @@ const Landing = () => {
                         <br />
                     </>
                 )}
-                Password:{' '}
+                Password:
                 <input
                     type='password'
-                    name=''
-                    id=''
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
                 <br />
                 {!login && (
@@ -34,9 +60,15 @@ const Landing = () => {
                         <br />
                     </>
                 )}
-                <button>{login ? 'Login' : 'Sign Up'}</button>
-                <SignUp onClick={() => setlogin(!login)}>
-                    {login ? 'Sign Up' : 'Login'}
+                <button
+                    onClick={() =>
+                        loggingIn ? handleLogin() : console.log('click')
+                    }
+                >
+                    {loggingIn ? 'Login' : 'Sign Up'}
+                </button>
+                <SignUp onClick={() => setLoggingIn(!login)}>
+                    {loggingIn ? 'Sign Up' : 'Login'}
                 </SignUp>
             </AccountForm>
         </Wrapper>

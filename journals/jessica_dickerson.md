@@ -13,3 +13,7 @@ Worked on React setup, basic folder structure and the routes for all the pages
 # 11/21
 
 Today I will create the landing page and the style wrapper for the entire project. If I finish that before noon, I will code out the user list page
+
+# 11/27
+
+Coding out the order details page today. Also examined the backend to see about protecting the routes, which can probably just be done by sending the token from the frontend

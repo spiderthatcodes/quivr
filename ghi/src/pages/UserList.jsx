@@ -2,37 +2,12 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Wrapper } from './style';
 import UserRow from '../components/UserRow';
-
-const mockData = [
-    {
-        first_name: 'Jane',
-        last_name: 'Doe',
-        username: 'janedoe123',
-        email: 'jd@test.com',
-        phone_number: '1112224444',
-        role: 'customer',
-    },
-    {
-        first_name: 'Mike',
-        last_name: 'Smith',
-        username: 'janedoe123',
-        email: 'ms@test.com',
-        phone_number: '1112224444',
-        role: 'shaper',
-    },
-    {
-        first_name: 'Mark',
-        last_name: 'Hamil',
-        username: 'janedoe123',
-        email: 'mh@test.com',
-        phone_number: '1112224444',
-        role: 'admin',
-    },
-];
+import { useGetAllAccountsQuery } from '../app/authSlice';
 
 // possible roles are: "customer", "shaper", "admin"
 
 const UserList = () => {
+    let { data } = useGetAllAccountsQuery();
     const navigate = useNavigate();
     let role = 'admin';
     const [userList, setUserList] = useState([]);
@@ -40,13 +15,16 @@ const UserList = () => {
     useEffect(() => {
         if (role === 'customer') {
             navigate('/create-order');
-        } else if (role === 'shaper') {
-            let filtered = mockData.filter((item) => item.role === 'customer');
-            setUserList(filtered);
-        } else {
-            setUserList(mockData);
         }
-    }, [navigate, role]);
+        if (data) {
+            if (role === 'shaper') {
+                let filtered = data.filter((item) => item.role === 'customer');
+                setUserList(filtered);
+            } else {
+                setUserList(data);
+            }
+        }
+    }, [data, navigate, role]);
 
     return (
         <Wrapper>

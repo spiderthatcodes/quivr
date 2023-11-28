@@ -20,3 +20,19 @@ export const AccountForm = styled.div`
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 `;
+
+export const DetailsContainer = styled.div`
+    display: flex;
+    gap: 100px;
+`;
+
+export const Labels = styled.div``;
+
+export const Values = styled.div``;
+
+export const Container = styled.div`
+    display: flex;
+    gap: 40%;
+`;
+
+export const UserContainer = styled.div``;
