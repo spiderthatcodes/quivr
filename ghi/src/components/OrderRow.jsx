@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import OrderDetails from '../pages/OrderDetails';
+import OrderDetails from './OrderDetails';
 
 const OrderRow = ({ item, role }) => {
     const [showDetails, setShowDetails] = useState(false);
