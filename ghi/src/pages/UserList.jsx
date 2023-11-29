@@ -14,7 +14,7 @@ const UserList = () => {
         if (!isLoading && !account) {
             navigate('/');
         }
-        if (account.role === 'customer') {
+        if (!isLoading && account.role === 'customer') {
             navigate('/create-order');
         }
         if (allUsers && !isLoading) {
