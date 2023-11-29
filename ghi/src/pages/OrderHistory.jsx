@@ -1,43 +1,64 @@
 import React, { useEffect, useState } from 'react';
-import { Wrapper } from './style';
-import OrderRow from '../components/OrderRow';
+import { useNavigate } from 'react-router-dom';
 import { useGetAllOrdersQuery } from '../app/ordersSlice';
-import { useGetAccountsByRoleQuery } from '../app/authSlice';
+import { useGetTokenQuery } from '../app/authSlice';
+import OrderRow from '../components/OrderRow';
+import { Wrapper } from './style';
 
 const OrderHistory = () => {
-    const { data } = useGetAllOrdersQuery();
-    const roles = useGetAccountsByRoleQuery('shaper');
-    console.log(roles);
+    const navigate = useNavigate();
+    const { data: account, isLoading } = useGetTokenQuery();
+    const { data: allOrders, isLoading: ordersLoading } =
+        useGetAllOrdersQuery();
     const [orders, setOrders] = useState([]);
-    console.log(data);
+
     useEffect(() => {
-        // filtering will need to be included here once accounts works in redux
-        data && setOrders(data);
-    }, [data]);
-    let role = 'admin';
+        if (!isLoading && !account) {
+            navigate('/');
+        }
+        if (!ordersLoading && account.role === 'customer') {
+            let list = allOrders.filter(
+                (item) => item.customer_id === account.username
+            );
+            setOrders(list);
+        } else if (!ordersLoading && account.role === 'shaper') {
+            let list = allOrders.filter(
+                (item) => item.surfboard_shaper === account.username
+            );
+            setOrders(list);
+        } else {
+            !ordersLoading && setOrders(allOrders);
+        }
+    }, [account, allOrders, isLoading, navigate, ordersLoading]);
+
+    if (isLoading || ordersLoading) return <div>Loading...</div>;
 
     return (
         <Wrapper>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Order Date</th>
-                        {role !== 'customer' && <th>Customer Name</th>}
-                        {role !== 'shaper' && <th>Shaper Name</th>}
-                        <th>Surfboard Model</th>
-                        <th>Order Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {orders.map((item, index) => (
-                        <OrderRow
-                            item={item}
-                            role={role}
-                            key={index}
-                        />
-                    ))}
-                </tbody>
-            </table>
+            {account && (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order Date</th>
+                            {account.role !== 'customer' && (
+                                <th>Customer Name</th>
+                            )}
+                            {account.role !== 'shaper' && <th>Shaper Name</th>}
+                            <th>Surfboard Model</th>
+                            <th>Order Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders.map((item, index) => (
+                            <OrderRow
+                                item={item}
+                                role={account.role}
+                                key={index}
+                            />
+                        ))}
+                    </tbody>
+                </table>
+            )}
         </Wrapper>
     );
 };

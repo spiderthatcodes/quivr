@@ -1,6 +1,12 @@
 import React from 'react';
 
-import { DetailsContainer, Wrapper, Labels, Values, Container } from './style';
+import {
+    DetailsContainer,
+    Wrapper,
+    Labels,
+    Values,
+    Container,
+} from '../pages/style';
 
 const OrderDetails = ({ order }) => {
     return (

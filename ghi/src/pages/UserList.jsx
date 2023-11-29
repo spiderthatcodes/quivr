@@ -1,61 +1,68 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Wrapper } from './style';
+import { useGetAllAccountsQuery, useGetTokenQuery } from '../app/authSlice';
 import UserRow from '../components/UserRow';
-import { useGetAllAccountsQuery } from '../app/authSlice';
-
-// possible roles are: "customer", "shaper", "admin"
+import { Wrapper } from './style';
 
 const UserList = () => {
-    let { data } = useGetAllAccountsQuery();
+    let { data: allUsers } = useGetAllAccountsQuery();
+    const { data: account, isLoading } = useGetTokenQuery();
     const navigate = useNavigate();
-    let role = 'admin';
     const [userList, setUserList] = useState([]);
 
     useEffect(() => {
-        if (role === 'customer') {
+        if (!isLoading && !account) {
+            navigate('/');
+        }
+        if (account.role === 'customer') {
             navigate('/create-order');
         }
-        if (data) {
-            if (role === 'shaper') {
-                let filtered = data.filter((item) => item.role === 'customer');
+        if (allUsers && !isLoading) {
+            if (account.role === 'shaper') {
+                let filtered = allUsers.filter(
+                    (item) => item.role === 'customer'
+                );
                 setUserList(filtered);
             } else {
-                setUserList(data);
+                setUserList(allUsers);
             }
         }
-    }, [data, navigate, role]);
+    }, [account, allUsers, isLoading, navigate]);
 
     return (
         <Wrapper>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            {role === 'shaper' ? 'Customer Name' : 'User Name'}
-                        </th>
-                        {role === 'shaper' ? (
-                            <>
-                                <th>Orders In Progress</th>
-                                <th>Completed Orders</th>
-                            </>
-                        ) : (
-                            <th>User Type</th>
-                        )}
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {userList.map((item, index) => (
-                        <UserRow
-                            item={item}
-                            role={role}
-                            key={index}
-                        />
-                    ))}
-                </tbody>
-            </table>
+            {account && (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                {account.role === 'shaper'
+                                    ? 'Customer Name'
+                                    : 'User Name'}
+                            </th>
+                            {account.role === 'shaper' ? (
+                                <>
+                                    <th>Orders In Progress</th>
+                                    <th>Completed Orders</th>
+                                </>
+                            ) : (
+                                <th>User Type</th>
+                            )}
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {userList.map((item, index) => (
+                            <UserRow
+                                item={item}
+                                role={account.role}
+                                key={index}
+                            />
+                        ))}
+                    </tbody>
+                </table>
+            )}
         </Wrapper>
     );
 };
