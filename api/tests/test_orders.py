@@ -1,20 +1,9 @@
-from fastapi import FastAPI
 from fastapi.testclient import TestClient
+from main import app
 from routes.orders import list_orders
 
-# import os
-# import pymongo
-
-
-app = FastAPI()
 
 client = TestClient(app)
-
-# DATABASE_URL = os.environ.get("DATABASE_URL")
-# DB_NAME = os.environ.get("DB_NAME")
-
-# mongo_client = pymongo.MongoClient(DATABASE_URL)
-# db = mongo_client[DB_NAME]
 
 
 class EmptyOrderQueries:
@@ -27,6 +16,7 @@ def test_list_orders():
     app.dependency_overrides[list_orders] = EmptyOrderQueries
 
     response = client.get("/orders/")
+    print(response)
 
     # Act
     app.dependency_overrides = {}

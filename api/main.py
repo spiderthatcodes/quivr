@@ -30,12 +30,6 @@ app.client = MongoClient(DATABASE_URL)
 app.db = app.client[DB_NAME]
 
 
-# Test:
-@app.get("/api/launch-details")
-def launch_details():
-    return {"Poke": "Mon"}
-
-
 app.include_router(authenticator.router, tags=["Auth"])
 app.include_router(accounts.router, tags=["Auth"])
 app.include_router(reviews_router, tags=["reviews"])

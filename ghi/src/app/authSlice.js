@@ -1,13 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-/*
-Auth section includes:
--getToken
--signUp
--login
--logout
-*/
-
 export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({
@@ -57,14 +49,35 @@ export const authApi = createApi({
             }),
             invalidatesTags: ['Account'],
         }),
-        getAllAccounts: builder.query({
-            query: () => '/accounts',
-        }),
         getAccountsByUsername: builder.query({
             query: (username) => `/accounts/username/${username}`,
         }),
+
+        getAllAccounts: builder.query({
+            query: () => '/accounts',
+            providesTags: ['Account'],
+        }),
+
         getAccountsByRole: builder.query({
-            query: (role) => `/accounts/${role}`,
+            query: (role) => `/api/accounts/${role}`,
+        }),
+
+        updateAccount: builder.mutation({
+            query: ({ username, data }) => ({
+                url: `/accounts/${username}`,
+                body: data,
+                // body: { data },
+                method: 'PUT',
+            }),
+            invalidatesTags: ['Account'],
+        }),
+
+        deleteAccount: builder.mutation({
+            query: (username) => ({
+                url: `/accounts/${username}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['Account', 'Token'],
         }),
     }),
 });
@@ -75,6 +88,8 @@ export const {
     useLogoutMutation,
     useSignupMutation,
     useGetAllAccountsQuery,
-    useGetAccountsByUsernameQuery,
     useGetAccountsByRoleQuery,
+    useCreateAccountMutation,
+    useUpdateAccountMutation,
+    useDeleteAccountMutation,
 } = authApi;

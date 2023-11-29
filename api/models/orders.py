@@ -38,7 +38,7 @@ class Order(BaseModel):
     surfboard_thickness: float = Field(..., le=4.0)
     surfboard_construction: Literal["PU", "EPS", "XTR", "Other"]
     surfboard_fin_system: Literal["FCS1", "FCS2", "Futures", "Other"]
-    surfboard_fin_count: Literal[5, 4, 3, 2, 1]
+    surfboard_fin_count: int = Field(..., ge=1, le=5)
     surfboard_tail_style: tail_styles
     surfboard_glassing: glassing_styles
     surfboard_desc: str | None
