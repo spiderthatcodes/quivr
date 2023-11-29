@@ -26,7 +26,7 @@ export const authApi = createApi({
 
         signup: builder.mutation({
             query: (body) => ({
-                url: '/token',
+                url: '/accounts',
                 body,
                 method: 'POST',
                 credentials: 'include',
