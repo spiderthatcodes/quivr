@@ -17,3 +17,7 @@ Today I will create the landing page and the style wrapper for the entire projec
 # 11/27
 
 Coding out the order details page today. Also examined the backend to see about protecting the routes, which can probably just be done by sending the token from the frontend
+
+# 11/29
+
+Lots of bug fixes today, added a dedicated page for the login rather than having it on the home page

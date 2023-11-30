@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGetAllOrdersQuery } from '../app/ordersSlice';
-import { useGetTokenQuery } from '../app/authSlice';
-import OrderRow from '../components/OrderRow';
-import { Wrapper } from './style';
-import OrderDetails from '../components/OrderDetails';
+import { useGetAllOrdersQuery } from '../../app/ordersSlice';
+import { useGetTokenQuery } from '../../app/authSlice';
+import OrderRow from '../../components/orderRow/OrderRow';
+import OrderDetails from '../../components/orderDetails/OrderDetails';
+import { Wrapper } from '../../constants';
 
 const OrderHistory = () => {
     const navigate = useNavigate();
