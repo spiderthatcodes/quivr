@@ -67,7 +67,7 @@ const OrderCreate = () => {
         };
         setAddToCart(...addToCart, order);
     }
-    console.log(addToCart);
+    // console.log(addToCart);
 
     //   if (result.isSuccess) {
     //     setShaper("");
@@ -86,7 +86,12 @@ const OrderCreate = () => {
     //     setError(result.error);
     //   }
 
-    if (isLoading || isTokenLoading) return <div>Loading...</div>;
+    if (isLoading || isTokenLoading)
+        return (
+            <Wrapper>
+                <h1>Loading...</h1>
+            </Wrapper>
+        );
 
     return (
         <Wrapper>

@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const InsertName = styled.div``;
 
-
-export const Container = styled.div`
-  /* #hoverDetail:hover{
+export const TR = styled.tr`
+    /* #hoverDetail:hover{
   background-color: ;
 } */
 `;
