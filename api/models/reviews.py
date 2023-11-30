@@ -12,6 +12,7 @@ class Reviews(BaseModel):
     description: str
     customer_id: str = Field(...)
     shaper_id: str = Field(...)
+    order_id: str
 
 
 class ReviewsUpdate(BaseModel):

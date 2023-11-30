@@ -5,6 +5,7 @@ import OrderHistory from './pages/OrderHistory.jsx';
 import UserList from './pages/UserList.jsx';
 import Navbar from './components/navbar/Navbar.jsx';
 import { FooterContainer } from './components/footer/Footer.jsx';
+import Login from './pages/Login.jsx';
 
 function App() {
     return (
@@ -14,6 +15,10 @@ function App() {
                 <Route
                     path='/'
                     element={<Landing />}
+                />
+                <Route
+                    path='/login'
+                    element={<Login />}
                 />
                 <Route
                     path='/create-order'
