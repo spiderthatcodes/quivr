@@ -3,10 +3,6 @@ import styled from 'styled-components'
 export const Container = styled.div`
   padding: 30px 30px;
   background-image:linear-gradient(#0B486B,#F56217) ;
-  position:absolute;
-  left:0;
-  bottom:0;
-  right:0;
 `;
 
 export const Wrapper = styled.div`

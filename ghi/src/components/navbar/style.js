@@ -64,6 +64,16 @@ export const Logo = styled.img`
   height: 100%;
 `;
 
+export const Button = styled.button`
+  background-color:#0d5274;
+  color: white;
+  font-size: 15px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin: 25px 0px;
+  cursor: pointer;
+`;
+
 export const OpenLinksButton = styled.button`
   width: 70px;
   height: 50px;
