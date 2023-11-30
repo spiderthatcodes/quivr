@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLoginMutation, useSignupMutation } from '../app/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { Wrapper, SignUp, AccountForm } from './style';
+import { Wrapper, SignUp, AccountForm} from './style';
 
 const Landing = () => {
     const navigate = useNavigate();
@@ -47,7 +47,9 @@ const Landing = () => {
     return (
         <Wrapper>
             <AccountForm>
+                <h1>Welcome!</h1>
                 Username:
+                <br/>
                 <input
                     type='text'
                     value={username}
@@ -87,6 +89,7 @@ const Landing = () => {
                     </>
                 )}
                 Password:
+                <br/>
                 <input
                     type='password'
                     value={password}
@@ -121,7 +124,7 @@ const Landing = () => {
                 )}
                 <SignUp onClick={() => setLoggingIn(!login)}>
                     {loggingIn ? 'Sign Up' : 'Login'}
-                </SignUp>
+                </button>
             </AccountForm>
         </Wrapper>
     );

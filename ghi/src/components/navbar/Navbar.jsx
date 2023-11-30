@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   NavbarContainer,
   LeftContainer,
@@ -10,14 +10,23 @@ import {
   Logo,
   OpenLinksButton,
   NavbarLinkExtended,
+  Button,
 } from "./style";
 import LogoImg from "../../pictures/logo.png";
+import { useLogoutMutation } from "../../app/authSlice";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
-  const [extendNavbar, setExtendNavbar] = useState(false);
+  const navigate = useNavigate();
+  const [extendnavbar, setExtendNavbar] = useState(false);
+  const [logout, logoutResponse] = useLogoutMutation();
+
+    useEffect(() => {
+        if (logoutResponse.data) navigate('/');
+    }, [logoutResponse, navigate])
 
   return (
-    <NavbarContainer extendNavbar={extendNavbar}>
+    <NavbarContainer extendnavbar={extendnavbar}>
       <NavbarInnerContainer>
         <LeftContainer>
         <Logo src={LogoImg}></Logo>
@@ -25,27 +34,26 @@ function Navbar() {
         <RightContainer>
         <NavbarLinkContainer>
             <NavbarLink to="/">Home</NavbarLink>
-            <NavbarLink to="/">Create Order</NavbarLink>
-            <NavbarLink to="/">Order History</NavbarLink>
-            <NavbarLink to="/">Order Detail</NavbarLink>
-            <NavbarLink to="/">Cart</NavbarLink>
+            <NavbarLink to="/create-order">Create Order</NavbarLink>
+            <NavbarLink to="/order-history">Order History</NavbarLink>
+            <NavbarLink to="/users">User</NavbarLink>
+            <Button onClick={()=>logout()}>Logout</Button>
             <OpenLinksButton
               onClick={() => {
                 setExtendNavbar((curr) => !curr);
               }}
             >
-              {extendNavbar ? <>&#10005;</> : <>&#8801;</>}
+              {extendnavbar ? <>&#10005;</> : <>&#8801;</>}
             </OpenLinksButton>
           </NavbarLinkContainer>
         </RightContainer>
       </NavbarInnerContainer>
-      {extendNavbar && (
+      {extendnavbar && (
       <NavbarExtendedContainer>
       <NavbarLink to="/">Home</NavbarLink>
-            <NavbarLinkExtended to="/">Create Order</NavbarLinkExtended>
-            <NavbarLinkExtended to="/">Order History</NavbarLinkExtended>
-            <NavbarLinkExtended to="/">Order Detail</NavbarLinkExtended>
-            <NavbarLinkExtended to="/">Cart</NavbarLinkExtended>
+            <NavbarLinkExtended to="/create-order">Create Order</NavbarLinkExtended>
+            <NavbarLinkExtended to="/order-history">Order History</NavbarLinkExtended>
+            <NavbarLinkExtended to="/users">User</NavbarLinkExtended>
       </NavbarExtendedContainer>
       )}
     </NavbarContainer>
