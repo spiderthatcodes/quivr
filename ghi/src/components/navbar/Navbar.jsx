@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     NavbarContainer,
     LeftContainer,
@@ -19,11 +19,7 @@ import { useNavigate, Link } from 'react-router-dom';
 function Navbar() {
     const navigate = useNavigate();
     const [extendnavbar, setExtendNavbar] = useState(false);
-    const [logout, logoutResponse] = useLogoutMutation();
-
-    useEffect(() => {
-        if (logoutResponse.data) navigate('/');
-    }, [logoutResponse, navigate]);
+    const [logout] = useLogoutMutation();
 
     return (
         <NavbarContainer extendnavbar={extendnavbar}>
@@ -42,7 +38,14 @@ function Navbar() {
                         <Button>
                             <Link to='/login'>Login</Link>
                         </Button>
-                        <Button onClick={() => logout()}>Logout</Button>
+                        <Button
+                            onClick={() => {
+                                logout();
+                                navigate('/');
+                            }}
+                        >
+                            Logout
+                        </Button>
                         <OpenLinksButton
                             onClick={() => {
                                 setExtendNavbar((curr) => !curr);
