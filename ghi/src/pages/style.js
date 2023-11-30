@@ -19,8 +19,8 @@ export const AccountForm = styled.div`
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background-color:#0D5274;
-  color: #F7E7BE;
+  background-color: #0d5274;
+  color: #f7e7be;
   text-align: center;
   align-items: center;
   padding: 15px;
@@ -28,16 +28,33 @@ export const AccountForm = styled.div`
 
 export const DetailsContainer = styled.div`
   display: flex;
-  gap: 100px;
+  gap: 20px;
 `;
 
-export const Labels = styled.div``;
+export const Labels = styled.div`
+`;
 
 export const Values = styled.div``;
 
+
 export const Container = styled.div`
-  display: flex;
-  gap: 40%;
+  position: fixed;
+  top: 20vh;
+  bottom: 20vh;
+  right: 0;
+  width: 20em;
+  background: #333;
+  color: #eee;
+  padding: 1em;
+  border: 1px solid black;
+  opacity:.75;
 `;
+
+export const H1 = styled.h1`
+text-align: end;
+font-size: 16px;
+`;
+
+
 
 export const UserContainer = styled.div``;

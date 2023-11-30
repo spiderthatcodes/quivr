@@ -59,7 +59,7 @@ export const authApi = createApi({
         }),
 
         getAccountsByRole: builder.query({
-            query: (role) => `/api/accounts/${role}`,
+            query: (role) => `/accounts/${role}`,
         }),
 
         updateAccount: builder.mutation({
