@@ -124,7 +124,7 @@ const Landing = () => {
                 )}
                 <SignUp onClick={() => setLoggingIn(!login)}>
                     {loggingIn ? 'Sign Up' : 'Login'}
-                </button>
+                </SignUp>
             </AccountForm>
         </Wrapper>
     );
