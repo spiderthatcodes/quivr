@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Wrapper } from './style';
-import { useGetTokenQuery, useGetAccountsByRoleQuery } from '../app/authSlice';
+import { Wrapper } from '../../constants';
+import {
+    useGetTokenQuery,
+    useGetAccountsByRoleQuery,
+} from '../../app/authSlice';
 
 /*
     **Notes: it would be GREAT to change numeric inputs to

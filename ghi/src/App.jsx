@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Landing from './pages/Landing.jsx';
-import OrderCreate from './pages/OrderCreate.jsx';
-import OrderHistory from './pages/OrderHistory.jsx';
-import UserList from './pages/UserList.jsx';
+import Landing from './pages/landing/Landing.jsx';
+import OrderCreate from './pages/orderCreate/OrderCreate.jsx';
+import OrderHistory from './pages/orderHistory/OrderHistory.jsx';
+import UserList from './pages/userList/UserList.jsx';
 import Navbar from './components/navbar/Navbar.jsx';
 import { FooterContainer } from './components/footer/Footer.jsx';
-import Login from './pages/Login.jsx';
+import Login from './pages/login/Login.jsx';
 
 function App() {
     return (

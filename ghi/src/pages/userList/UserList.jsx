@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGetAllAccountsQuery, useGetTokenQuery } from '../app/authSlice';
-import UserRow from '../components/UserRow';
-import { Wrapper } from './style';
+import { useGetAllAccountsQuery, useGetTokenQuery } from '../../app/authSlice';
+import UserRow from '../../components/userRow/UserRow';
+import { Wrapper } from '../../constants';
 
 const UserList = () => {
     let { data: allUsers } = useGetAllAccountsQuery();
