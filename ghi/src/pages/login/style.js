@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const SignUp = styled.p`
     cursor: pointer;
     color: #df7357;

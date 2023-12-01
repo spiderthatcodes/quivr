@@ -12,13 +12,12 @@ const OrderRow = ({ setShowDetails, item, role, status, setDetailedOrder }) => {
             <td>{item.surfboard_thickness}</td>
             <td>{item.order_status}</td>
             <td
-                id='hoverDetail'
                 onClick={() => {
                     setDetailedOrder(item);
                     setShowDetails(true);
                 }}
             >
-                Details
+                <span id='hoverDetail'>Details</span>
             </td>
         </TR>
     );
