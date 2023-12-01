@@ -54,12 +54,18 @@ export const authApi = createApi({
         }),
 
         getAllAccounts: builder.query({
-            query: () => '/accounts',
+            query: () => ({
+                url: '/accounts',
+                credentials: 'include',
+            }),
             providesTags: ['Account'],
         }),
 
         getAccountsByRole: builder.query({
-            query: (role) => `/accounts/${role}`,
+            query: (role) => ({
+                url: `/accounts/${role}`,
+                credentials: 'include',
+            }),
         }),
 
         updateAccount: builder.mutation({
@@ -68,6 +74,7 @@ export const authApi = createApi({
                 body: data,
                 // body: { data },
                 method: 'PUT',
+                credentials: 'include',
             }),
             invalidatesTags: ['Account'],
         }),
@@ -76,6 +83,7 @@ export const authApi = createApi({
             query: (username) => ({
                 url: `/accounts/${username}`,
                 method: 'DELETE',
+                credentials: 'include',
             }),
             invalidatesTags: ['Account', 'Token'],
         }),

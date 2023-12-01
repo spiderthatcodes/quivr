@@ -4,7 +4,7 @@ import { useGetAllOrdersQuery } from '../../app/ordersSlice';
 import { useGetTokenQuery } from '../../app/authSlice';
 import OrderRow from '../../components/orderRow/OrderRow';
 import OrderDetails from '../../components/orderDetails/OrderDetails';
-import { Wrapper } from '../../constants';
+import { Wrapper, Table } from '../../constants';
 
 const OrderHistory = () => {
     const navigate = useNavigate();
@@ -50,7 +50,7 @@ const OrderHistory = () => {
                         showDetails={showDetails}
                         setShowDetails={setShowDetails}
                     />
-                    <table>
+                    <Table>
                         <thead>
                             <tr>
                                 <th>Order Date</th>
@@ -62,6 +62,7 @@ const OrderHistory = () => {
                                 <th>Width</th>
                                 <th>Thinkness</th>
                                 <th>Order Status</th>
+                                <th />
                             </tr>
                         </thead>
                         <tbody>
@@ -76,7 +77,7 @@ const OrderHistory = () => {
                                 />
                             ))}
                         </tbody>
-                    </table>
+                    </Table>
                 </>
             )}
         </Wrapper>
