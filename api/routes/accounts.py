@@ -58,23 +58,32 @@ async def get_token(
 
 
 @router.get("/accounts", response_model=List[AccountOut])
-def list_accounts(request: Request):
-    accounts = list(request.app.db["accounts"].find())
+def list_accounts(
+    repo: AccountQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    accounts = repo.get_all_accounts()
     return accounts
 
 
 @router.get("/accounts/{role}", response_model=List[AccountOut])
-def list_accounts_by_role(request: Request, role: str):
-    accounts = list(request.app.db["accounts"].find({"role": role}))
+def list_accounts_by_role(
+    role: str,
+    repo: AccountQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    accounts = repo.get_accounts_by_role(role)
     return accounts
 
 
 @router.get("/accounts/username/{username}", response_model=AccountOut)
-def get_account_by_username(request: Request, username: str):
-    if (
-        account := request.app.db["accounts"].find_one({"username": username})
-    ) is not None:
-        return account
+def get_account_by_username(
+    username: str,
+    repo: AccountQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    if repo.get_one_by_username(username) is not None:
+        return repo.get_one_by_username(username)
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND,
         detail=f"Account with username {username} not found",
@@ -83,38 +92,18 @@ def get_account_by_username(request: Request, username: str):
 
 @router.put("/accounts/{username}", response_model=AccountOut)
 def update_account(
-    request: Request, username: str, account: AccountUpdate = Body(...)
+    username: str,
+    account: AccountUpdate = Body(...),
+    repo: AccountQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    account = {k: v for k, v in account.dict().items() if v is not None}
-
-    if len(account) >= 1:
-        update_result = request.app.db["accounts"].update_one(
-            {"username": username}, {"$set": account}
-        )
-
-        if update_result.modified_count == 0:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Account with username {username} not found",
-            )
-
-    if (
-        existing_account := request.app.db["accounts"].find_one(
-            {"username": username}
-        )
-    ) is not None:
-        return existing_account
-
-    # else:
-    raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail=f"Account with username {username} not found",
-    )
+    return repo.update(username, account)
 
 
 @router.delete("/accounts/{username}")
-def delete_account(request: Request, username: str):
-    account = request.app.db["accounts"].delete_one({"username": username})
-    if account:
-        return True
-    raise HTTPException(404, "Account does not exist")
+def delete_account(
+    username: str,
+    repo: AccountQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    return repo.delete(username)
