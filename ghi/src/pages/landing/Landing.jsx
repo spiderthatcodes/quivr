@@ -6,13 +6,13 @@ import {
   OurStory,
   AboutUs,
 } from "./style";
-import Surfboard1 from "../../pictures/Surfboard1.webp";
-import Surfboard2 from "../../pictures/Surfboard2.webp";
-import Surfboard3 from "../../pictures/Surfboard3.webp";
-import Surfboard4 from "../../pictures/Surfboard4.webp";
-import Surfboard5 from "../../pictures/SurfBoard5.webp";
-import SurfVan from "../../pictures/SurfVan.jpg";
-import Shaper from "../../pictures/Shaper.jpg";
+import Surfboard1 from "../../images/Surfboard1.webp";
+import Surfboard2 from "../../images/Surfboard2.webp";
+import Surfboard3 from "../../images/Surfboard3.webp";
+import Surfboard4 from "../../images/Surfboard4.webp";
+import Surfboard5 from "../../images/SurfBoard5.webp";
+import SurfVan from "../../images/SurfVan.jpg";
+import Shaper from "../../images/Shaper.jpg";
 
 const Landing = () => {
   return (
@@ -29,17 +29,30 @@ const Landing = () => {
             collaborative journey with our skilled shapers. They take the time
             to listen, understand your unique surfing needs, and translate that
             understanding into a design that captures the essence of your
-            surfing soul.</p><p> Whether you're after the speed and agility of a
-            shortboard or the graceful glide of a longboard, our shapers possess
-            the knowledge and finesse to bring your vision to life. The shaping
-            process at [Shop Name] is a fusion of art and science.</p><p> Our shapers
-            meticulously consider factors such as board dimensions, rocker,
-            rails, and concave to create a bespoke surfboard that not only
-            performs flawlessly on the waves but also feels like an extension of
-            your body.</p><p> Each subtle curve and contour is crafted with precision,
-            reflecting years of experience and a commitment to pushing the
-            boundaries of surfboard design.In addition to our dedication to
-            customization, we take pride in our commitment to sustainability.</p><p>
+            surfing soul.
+          </p>
+          <p>
+            {" "}
+            Whether you're after the speed and agility of a shortboard or the
+            graceful glide of a longboard, our shapers possess the knowledge and
+            finesse to bring your vision to life. The shaping process at [Shop
+            Name] is a fusion of art and science.
+          </p>
+          <p>
+            {" "}
+            Our shapers meticulously consider factors such as board dimensions,
+            rocker, rails, and concave to create a bespoke surfboard that not
+            only performs flawlessly on the waves but also feels like an
+            extension of your body.
+          </p>
+          <p>
+            {" "}
+            Each subtle curve and contour is crafted with precision, reflecting
+            years of experience and a commitment to pushing the boundaries of
+            surfboard design.In addition to our dedication to customization, we
+            take pride in our commitment to sustainability.
+          </p>
+          <p>
             Our shapers embrace eco-friendly materials and responsible
             manufacturing practices, ensuring that your custom board not only
             elevates your surfing experience but also contributes to the
