@@ -1,8 +1,5 @@
 body {
     margin: 0;
-    background-image: url(./pictures/pexels-pixabay-390051.jpg);
-    background-size: cover;
-    margin: 0;
     font-family:sans-serif;
 }
 
@@ -10,4 +7,3 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
-

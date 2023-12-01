@@ -11,7 +11,7 @@ import {
     a list of incremented integers
   */
 
-const OrderCreate = () => {
+const OrderCreate = ({}) => {
     const navigate = useNavigate();
     const { data: accounts, isLoading } = useGetAccountsByRoleQuery('shaper');
     const { data: account, isLoading: isTokenLoading } = useGetTokenQuery();
@@ -300,7 +300,7 @@ const OrderCreate = () => {
                 <button onClick={() => handleClick()}>Cancel</button>
                 {/* {error ? (
           <div>There was an error creating your order. {error}</div>
-        ) : null} */}
+                ) : null} */}
             </div>
         </Wrapper>
     );
