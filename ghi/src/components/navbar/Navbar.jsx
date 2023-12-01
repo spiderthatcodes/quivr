@@ -12,7 +12,7 @@ import {
   NavbarLinkExtended,
   Button,
 } from "./style";
-import LogoImg from "../../pictures/logo.png";
+import LogoImg from "../../images/logo.png";
 import { useLogoutMutation } from "../../app/authSlice";
 import { useNavigate, Link } from "react-router-dom";
 

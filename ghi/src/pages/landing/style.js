@@ -1,13 +1,15 @@
 import styled from "styled-components";
-import Background from "../../pictures/pexels-pixabay-390051.jpg";
+import Background from "../../images/pexels-pixabay-390051.jpg";
 
 export const Title = styled.h1`
   text-align: center;
-  font-family: "Luckiest Guy", cursive;
+  /* font-family: "Luckiest Guy", cursive; */
+  font-family: sans-serif;
   font-size: 35px;
   letter-spacing: 3px;
   margin-bottom: 0px;
   margin-top: 0px;
+  color: white;
 `;
 
 export const LandContainer = styled.div`
@@ -66,14 +68,14 @@ export const AboutUs = styled.div`
   justify-content: space-between;
   padding: 0 30px;
   line-height: 30px;
-  background-color: #073E4F;
+  background-color: #073e4f;
   color: white;
   margin-top: 15px;
   img {
     height: 70vh;
     width: 70vh;
   }
-  div{
+  div {
     max-width: 50%;
   }
 `;

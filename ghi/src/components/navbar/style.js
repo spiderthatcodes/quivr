@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const NavbarContainer = styled.nav`
   width: 100%;
   height: ${(props) => (props.extendNavbar ? "100vh" : "80px")};
-  background-color: transparent;
   display: flex;
   flex-direction: column;
 
@@ -35,11 +34,10 @@ export const NavbarLinkContainer = styled.div`
 `;
 
 export const NavbarLink = styled(Link)`
-  /* color: #0d5274; */
-  color: white;
+  color: #0d5274;
+  /* color: white; */
   font-size: 20px;
   font-family: menlo;
-  /* letter-spacing: 5px; */
   text-decoration: none;
   margin: 30px;
   padding-right: 80px;
@@ -50,11 +48,8 @@ export const NavbarLink = styled(Link)`
 `;
 
 export const NavbarLinkExtended = styled(Link)`
-  /* color: #0d5274; */
   color: white;
   font-size: x-large;
-  /* font-family: fantasy; */
-  /* font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; */
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   letter-spacing: 5px;
   text-decoration: none;
