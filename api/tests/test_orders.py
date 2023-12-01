@@ -19,7 +19,7 @@ def test_list_orders():
     print(response)
 
     # Act
-    app.dependency_overrides = {}
+    app.dependency_overrides = []
 
     # Assert
     assert response.status_code == 200
