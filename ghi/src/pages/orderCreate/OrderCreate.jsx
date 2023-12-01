@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Wrapper, OrderForm } from "./style";
+import { OrderForm } from "./style";
+import { Wrapper, LandBackground } from "../../constants";
 import Cart from "../../components/cart/Cart";
 import {
   useGetTokenQuery,
   useGetAccountsByRoleQuery,
 } from "../../app/authSlice";
-import {
-  Container1,
-  Container2,
-  Container3,
-  StyledCart,
-  LandBackground,
-} from "./style";
+import { Container1, Container2, Container3, StyledCart } from "./style";
 import CartDetails from "../../components/cartDetails/CartDetails";
 
 /*

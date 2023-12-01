@@ -1,21 +1,4 @@
 import styled from "styled-components";
-import Background from "../../images/pexels-pixabay-390051.jpg";
-
-export const LandBackground = styled.div`
-  background-image: url(${Background});
-  height: 60vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 70px 0;
-`;
-
-export const Wrapper = styled.div`
-  max-width: 1200px;
-  margin: auto;
-  padding: 12px;
-  min-height: 80vh;
-`;
 
 export const OrderForm = styled.div`
   position: absolute;
