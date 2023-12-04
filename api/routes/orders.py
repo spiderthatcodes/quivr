@@ -14,11 +14,11 @@ router = APIRouter()
 
 
 @router.post("/orders", response_model=OrderOut)
-def create_order(
+async def create_order(
     order: OrderIn,
     queries: OrderQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
-):
+) -> OrderOut:
     return queries.create(order, customer_username=account_data["username"])
 
 
