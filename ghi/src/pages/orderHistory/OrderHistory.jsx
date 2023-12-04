@@ -4,6 +4,7 @@ import { useGetAllOrdersQuery } from '../../app/ordersSlice';
 import { useGetTokenQuery } from '../../app/authSlice';
 import OrderRow from '../../components/orderRow/OrderRow';
 import OrderDetails from '../../components/orderDetails/OrderDetails';
+import ReviewModal from '../../components/reviewModal/ReviewModal';
 import { Wrapper, Table, LandBackground } from '../../constants';
 
 const OrderHistory = () => {
@@ -14,77 +15,40 @@ const OrderHistory = () => {
     const [orders, setOrders] = useState([]);
     const [showDetails, setShowDetails] = useState(false);
     const [detailedOrder, setDetailedOrder] = useState({});
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         if (!isLoading && !account) {
             navigate('/');
         }
-        if (!ordersLoading && account?.role === 'customer') {
-            let list = allOrders.filter(
-                (item) => item.customer_id === account.username
+        if (allOrders && account?.role === 'customer') {
+            let orderlist = allOrders.orders;
+            let list = orderlist.filter(
+                (item) => item.customer_username === account.username
             );
             setOrders(list);
-        } else if (!ordersLoading && account?.role === 'shaper') {
-            let list = allOrders.filter(
+        } else if (allOrders && account?.role === 'shaper') {
+            let orderlist = allOrders.orders;
+            let list = orderlist.filter(
                 (item) => item.surfboard_shaper === account.username
             );
             setOrders(list);
         } else {
-            !ordersLoading && setOrders(allOrders);
+            !ordersLoading && setOrders(allOrders.orders);
         }
     }, [account, allOrders, isLoading, navigate, ordersLoading]);
 
     if (isLoading || ordersLoading)
         return (
-            <LandBackground>
-                <Wrapper>
-                    {account && (
-                        <>
-                            <OrderDetails
-                                order={detailedOrder}
-                                showDetails={showDetails}
-                                setShowDetails={setShowDetails}
-                            />
-                            <Table>
-                                <thead>
-                                    <tr>
-                                        <th>Order Date</th>
-                                        {account.role !== 'customer' && (
-                                            <th>Customer</th>
-                                        )}
-                                        {account.role !== 'shaper' && (
-                                            <th>Shaper</th>
-                                        )}
-                                        <th>Length</th>
-                                        <th>Width</th>
-                                        <th>Thinkness</th>
-                                        <th>Order Status</th>
-                                        <th />
-                                        <th />
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {orders.map((item, index) => (
-                                        <OrderRow
-                                            item={item}
-                                            role={account.role}
-                                            key={index}
-                                            status={item.order_status}
-                                            setShowDetails={setShowDetails}
-                                            setDetailedOrder={setDetailedOrder}
-                                        />
-                                    ))}
-                                </tbody>
-                            </Table>
-                        </>
-                    )}
-                </Wrapper>
-            </LandBackground>
+            <Wrapper>
+                <h1>Loading...</h1>
+            </Wrapper>
         );
 
     return (
         <LandBackground>
             <Wrapper>
+                {showModal && <ReviewModal setShowModal={setShowModal} />}
                 {account && (
                     <>
                         <OrderDetails
@@ -106,7 +70,6 @@ const OrderHistory = () => {
                                     <th>Width</th>
                                     <th>Thickness</th>
                                     <th>Order Status</th>
-                                    <th />
                                 </tr>
                             </thead>
                             <tbody>
@@ -118,6 +81,7 @@ const OrderHistory = () => {
                                         status={item.order_status}
                                         setShowDetails={setShowDetails}
                                         setDetailedOrder={setDetailedOrder}
+                                        setShowModal={setShowModal}
                                     />
                                 ))}
                             </tbody>
