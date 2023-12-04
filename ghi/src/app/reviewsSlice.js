@@ -7,13 +7,6 @@ export const reviewsApi = createApi({
   }),
   tagTypes: ["Review"],
   endpoints: (builder) => ({
-    /*
-    Users ????
-
-    Reviews state: GLOBAL => Accessible to Orders. Once a review is submitted then
-    the option to 'add review' disappears from available options
-*/
-
     createReview: builder.mutation({
       query: (data) => ({
         url: "/reviews",
@@ -36,7 +29,6 @@ export const reviewsApi = createApi({
       query: ({ id, data }) => ({
         url: `/reviews/${id}`,
         body: data,
-        // body: { data },
         method: "put",
       }),
       invalidatesTags: ["Review"],
@@ -46,7 +38,6 @@ export const reviewsApi = createApi({
       query: ({ id, data }) => ({
         url: `/reviews/${id}`,
         body: data,
-        // body: { data },
         method: "DELETE",
         credentials: "include",
       }),
