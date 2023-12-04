@@ -17,7 +17,7 @@ class OrderIn(BaseModel):
 
 class OrderOut(BaseModel):
     order_id: str | int
-    # order_date: str
+    date: str
     order_status: str
     customer_username: str
     surfboard_shaper: str

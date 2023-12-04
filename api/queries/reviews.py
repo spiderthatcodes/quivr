@@ -2,6 +2,7 @@ from queries.client import MongoQueries
 from fastapi import HTTPException, status, Body
 from models.reviews import ReviewsIn, ReviewsUpdate, ReviewsOut
 from bson.objectid import ObjectId
+import datetime
 
 
 class ReviewQueries(MongoQueries):
@@ -10,6 +11,8 @@ class ReviewQueries(MongoQueries):
     def create(self, review: ReviewsIn, customer) -> ReviewsOut:
         data = review.dict()
         data["customer"] = customer
+        now = datetime.datetime.utcnow()
+        data["date"] = now.strftime("%Y-%m-%d, %H:%M")
         self.collection.insert_one(data)
         data["id"] = str(data["_id"])
         return ReviewsOut(**data)
