@@ -3,7 +3,7 @@ from queries.client import MongoQueries
 from bson.objectid import ObjectId
 from models.orders import OrderIn, OrderOut, OrdersOut
 
-# from datetime import date
+import datetime
 
 
 class OrderQueries(MongoQueries):
@@ -13,7 +13,8 @@ class OrderQueries(MongoQueries):
         data = order.dict()
         data["customer_username"] = customer_username
         data["order_status"] = "Order received"
-        # data["date"] = date
+        now = datetime.datetime.utcnow()
+        data["date"] = now.strftime("%Y-%m-%d, %H:%M")
         self.collection.insert_one(data)
         data["order_id"] = str(data["_id"])
 

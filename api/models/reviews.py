@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 
 class ReviewsIn(BaseModel):
-    # date: date
     rating: int
     title: str
     description: str
@@ -13,7 +12,7 @@ class ReviewsIn(BaseModel):
 
 class ReviewsOut(BaseModel):
     id: str
-    # date: date
+    date: str
     rating: int
     title: str
     description: str
