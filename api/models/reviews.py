@@ -1,17 +1,24 @@
 from typing import Optional
-from pydantic import BaseModel, Field
-from uuid import uuid4
-from datetime import date
+from pydantic import BaseModel
 
 
-class Reviews(BaseModel):
-    id: str = Field(default_factory=uuid4, alias="_id")
-    date: date
+class ReviewsIn(BaseModel):
+    # date: date
     rating: int
-    title: str = Field(...)
+    title: str
     description: str
-    customer_id: str = Field(...)
-    shaper_id: str = Field(...)
+    shaper: str
+    order_id: str
+
+
+class ReviewsOut(BaseModel):
+    id: str
+    # date: date
+    rating: int
+    title: str
+    description: str
+    customer: str
+    shaper: str
     order_id: str
 
 
