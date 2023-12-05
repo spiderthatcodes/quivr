@@ -4,7 +4,6 @@ import { useGetAllOrdersQuery } from '../../app/ordersSlice';
 import { useGetTokenQuery } from '../../app/authSlice';
 import OrderRow from '../../components/orderRow/OrderRow';
 import OrderDetails from '../../components/orderDetails/OrderDetails';
-import ReviewModal from '../../components/reviewModal/ReviewModal';
 import { Wrapper, Table, LandBackground } from '../../constants';
 
 const OrderHistory = () => {
@@ -15,7 +14,6 @@ const OrderHistory = () => {
     const [orders, setOrders] = useState([]);
     const [showDetails, setShowDetails] = useState(false);
     const [detailedOrder, setDetailedOrder] = useState({});
-    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         if (!isLoading && !account) {
@@ -48,7 +46,6 @@ const OrderHistory = () => {
     return (
         <LandBackground>
             <Wrapper>
-                {showModal && <ReviewModal setShowModal={setShowModal} />}
                 {account && (
                     <>
                         <OrderDetails
@@ -81,7 +78,6 @@ const OrderHistory = () => {
                                         status={item.order_status}
                                         setShowDetails={setShowDetails}
                                         setDetailedOrder={setDetailedOrder}
-                                        setShowModal={setShowModal}
                                     />
                                 ))}
                             </tbody>
