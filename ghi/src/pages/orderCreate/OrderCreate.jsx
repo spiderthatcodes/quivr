@@ -89,6 +89,7 @@ const OrderCreate = () => {
 
         <OrderForm
           shaper={shaper}
+          surfboard_shaper={surfboard_shaper}
           setShaper={setShaper}
           surfboard_model={surfboard_model}
           setModel={setModel}

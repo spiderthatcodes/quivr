@@ -2,9 +2,9 @@ import { OrderFormStyle } from "./style";
 import { Container1, Container2, Container3 } from "./style";
 
 export default function OrderForm({
+  shaper,
   setShaper,
   surfboard_shaper,
-  shaper,
   setModel,
   surfboard_model,
   setLength,
@@ -35,29 +35,13 @@ export default function OrderForm({
         <h3>Starting at $849</h3>
         <Container1>
           <select
-            onChange={(e) => setConstruction(e.target.value)}
-            name="construction"
-            id="construction"
-            value={surfboard_construction}
-          >
-            <option> Choose a construction...</option>
-            {["PU", "EPS", "XTR", "Other"].map((item) => {
-              return (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              );
-            })}
-          </select>
-
-          <select
             onChange={(e) => setShaper(e.target.value)}
             name="shaper"
             id="shaper"
             value={surfboard_shaper}
             required
           >
-            <option value="">Choose a shaper...</option>
+            <option>Choose a shaper...</option>
             {shaper &&
               shaper.map((obj) => {
                 return (
