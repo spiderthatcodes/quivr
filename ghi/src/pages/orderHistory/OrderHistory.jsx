@@ -36,7 +36,7 @@ const OrderHistory = () => {
 
   if (isLoading || ordersLoading)
     return (
-      <ImgBackground>
+      <LandBackground>
         <Wrapper>
           {account && (
             <>
@@ -75,7 +75,7 @@ const OrderHistory = () => {
             </>
           )}
         </Wrapper>
-      </ImgBackground>
+      </LandBackground>
     );
 
   return (
@@ -98,7 +98,6 @@ const OrderHistory = () => {
                   <th>Width</th>
                   <th>Thickness</th>
                   <th>Order Status</th>
-                  <th />
                 </tr>
               </thead>
               <tbody>
