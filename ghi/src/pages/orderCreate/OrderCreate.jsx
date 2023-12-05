@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { OrderForm } from "./style";
-import { Wrapper, LandBackground } from "../../constants";
+import { ImgBackground } from "./style";
+import { Wrapper } from "../../constants";
+import { Container1, Container2, Container3, StyledCart } from "./style";
 import Cart from "../../components/cart/Cart";
+import CartDetails from "../../components/cartDetails/CartDetails";
 import {
   useGetTokenQuery,
   useGetAccountsByRoleQuery,
 } from "../../app/authSlice";
-import { Container1, Container2, Container3, StyledCart } from "./style";
-import CartDetails from "../../components/cartDetails/CartDetails";
 
 /*
     **Notes: it would be GREAT to change numeric inputs to
@@ -88,7 +89,7 @@ const OrderCreate = () => {
   }
 
   return (
-    <LandBackground>
+    <ImgBackground>
       <Wrapper>
         <StyledCart>
           <Cart cartCount={addToCart.length} setShowCart={setShowCart} />
@@ -289,7 +290,7 @@ const OrderCreate = () => {
           </Container3>
         </OrderForm>
       </Wrapper>
-    </LandBackground>
+    </ImgBackground>
   );
 };
 
