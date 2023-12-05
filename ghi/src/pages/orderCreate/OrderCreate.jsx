@@ -84,6 +84,7 @@ const OrderCreate = () => {
             order={addToCart}
             showCart={showCart}
             setShowCart={setShowCart}
+            addToCart={addToCart}
           />
         )}
 

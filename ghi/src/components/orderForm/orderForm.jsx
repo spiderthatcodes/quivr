@@ -1,5 +1,6 @@
 import { OrderFormStyle } from "./style";
 import { Container1, Container2, Container3 } from "./style";
+import Orderboard from "../../images/Orderboard.png";
 
 export default function OrderForm({
   shaper,
@@ -192,7 +193,9 @@ export default function OrderForm({
             onChange={(e) => setDesc(e.target.value)}
           ></textarea>
           <br />
+          <img src={Orderboard} alt="" />
 
+          <img src="" alt="" />
           <div id="buttons">
             <button onClick={(e) => handleSubmit(e)}>Add to cart</button>
             <br />
