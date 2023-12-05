@@ -1,7 +1,7 @@
 from fastapi import HTTPException, status
 from queries.client import MongoQueries
 from bson.objectid import ObjectId
-from models.orders import OrderIn, OrderOut, OrdersOut
+from models.orders import OrderIn, OrderOut, OrderUpdate
 
 import datetime
 
@@ -13,6 +13,7 @@ class OrderQueries(MongoQueries):
         data = order.dict()
         data["customer_username"] = customer_username
         data["order_status"] = "Order received"
+        data["reviewed"] = False
         now = datetime.datetime.utcnow()
         data["date"] = now.strftime("%Y-%m-%d, %H:%M")
         self.collection.insert_one(data)
@@ -20,7 +21,7 @@ class OrderQueries(MongoQueries):
 
         return OrderOut(**data)
 
-    def list_orders(self) -> OrdersOut:
+    def list_orders(self) -> OrderOut:
         orders = []
         for item in self.collection.find():
             item["order_id"] = str(item["_id"])
@@ -37,7 +38,7 @@ class OrderQueries(MongoQueries):
             detail=f"Order with ID {order_id} not found",
         )
 
-    def update(self, order_id: str, update_data: dict):
+    def update(self, order_id: str, update_data: dict) -> OrderUpdate:
         filter_query = {"_id": ObjectId(order_id)}
         update_query = {"$set": update_data}
         order = self.collection.update_one(filter_query, update_query)

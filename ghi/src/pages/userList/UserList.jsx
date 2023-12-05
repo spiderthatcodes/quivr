@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetAllAccountsQuery, useGetTokenQuery } from '../../app/authSlice';
 import UserRow from '../../components/userRow/UserRow';
-import { Wrapper, Table } from '../../constants';
+// import { Wrapper} from '../../constants';
+import { Table } from './style';
 
 const UserList = () => {
     let { data: allUsers } = useGetAllAccountsQuery();
@@ -30,7 +31,8 @@ const UserList = () => {
     }, [account, allUsers, isLoading, navigate]);
 
     return (
-        <Wrapper>
+        // <Wrapper>
+        <>
             {account && (
                 <Table>
                     <thead>
@@ -63,7 +65,8 @@ const UserList = () => {
                     </tbody>
                 </Table>
             )}
-        </Wrapper>
+        </>
+        // </Wrapper>
     );
 };
 

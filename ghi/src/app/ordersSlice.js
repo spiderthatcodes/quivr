@@ -18,6 +18,7 @@ export const ordersApi = createApi({
         url: "/orders",
         method: "POST",
         body: data,
+        credentials: "include",
       }),
       invalidatesTags: ["Order"],
     }),
@@ -25,10 +26,12 @@ export const ordersApi = createApi({
     getAllOrders: builder.query({
       query: () => "/orders",
       providesTags: ["Order"],
+      credentials: "include",
     }),
 
     getOrderById: builder.query({
       query: (id) => `/orders/${id}`,
+      credentials: "include",
     }),
 
     updateOrder: builder.mutation({
@@ -36,6 +39,7 @@ export const ordersApi = createApi({
         url: `/orders/${id}`,
         body: data,
         method: "PUT",
+        credentials: "include",
       }),
       invalidatesTags: ["Order"],
     }),
