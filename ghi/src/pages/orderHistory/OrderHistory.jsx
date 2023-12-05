@@ -77,47 +77,6 @@ const OrderHistory = () => {
         </Wrapper>
       </LandBackground>
     );
-
-  return (
-    <ImgBackground>
-      <Wrapper>
-        {account && (
-          <>
-            <OrderDetails
-              order={detailedOrder}
-              showDetails={showDetails}
-              setShowDetails={setShowDetails}
-            />
-            <Table>
-              <thead>
-                <tr>
-                  <th>Order Date</th>
-                  {account.role !== "customer" && <th>Customer</th>}
-                  {account.role !== "shaper" && <th>Shaper</th>}
-                  <th>Length</th>
-                  <th>Width</th>
-                  <th>Thickness</th>
-                  <th>Order Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders.map((item, index) => (
-                  <OrderRow
-                    item={item}
-                    role={account.role}
-                    key={index}
-                    status={item.order_status}
-                    setShowDetails={setShowDetails}
-                    setDetailedOrder={setDetailedOrder}
-                  />
-                ))}
-              </tbody>
-            </Table>
-          </>
-        )}
-      </Wrapper>
-    </ImgBackground>
-  );
 };
 
 export default OrderHistory;
