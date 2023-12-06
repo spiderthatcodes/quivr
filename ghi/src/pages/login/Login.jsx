@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLoginMutation, useSignupMutation } from '../../app/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { SignUp, AccountForm,LandBackground} from './style';
+import { SignUp, AccountForm,LandBackground} from '../login/style';
 
 const Login = () => {
     const navigate = useNavigate();

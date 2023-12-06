@@ -13,10 +13,15 @@ import Surfboard4 from "../../images/Surfboard4.webp";
 import Surfboard5 from "../../images/SurfBoard5.webp";
 import SurfVan from "../../images/SurfVan.jpg";
 import Shaper from "../../images/Shaper.jpg";
+import Carousel  from "../../components/Carousel/Carousel";
+import Slider1 from"../../images/Slider1.png"
+import Slider2 from"../../images/Slider2.png"
+import Slider3 from"../../images/Slider3.png"
+
 
 const Landing = () => {
+  const items = [Slider1, Slider2, Slider3];
   return (
-    // <Wrapper>
     <LandContainer>
       <LandBackground>
         <Title>Welcome to Quivr</Title>
@@ -61,6 +66,7 @@ const Landing = () => {
         </div>
         <img src={Shaper} alt="Custom board a shaper made for a client" />
       </AboutUs>
+      <Carousel items={items} />
       <Div>
         <h1>Recently Made</h1>
         <img src={Surfboard1} alt="" />
@@ -93,7 +99,6 @@ const Landing = () => {
         <img src={SurfVan} alt="" />
       </OurStory>
     </LandContainer>
-    // </Wrapper>
   );
 };
 

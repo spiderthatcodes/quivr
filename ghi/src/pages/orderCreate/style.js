@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Background from "../../images/pexels-pixabay-390051.jpg";
+import Background from "../../images/CreateOrder.jpg";
 
 export const ImgBackground = styled.div`
   background-image: url(${Background});
@@ -13,4 +13,5 @@ export const ImgBackground = styled.div`
 export const StyledCart = styled.div`
   display: flex;
   justify-content: flex-end;
+  
 `;
