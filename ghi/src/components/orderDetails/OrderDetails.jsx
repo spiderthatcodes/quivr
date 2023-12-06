@@ -1,9 +1,28 @@
-import React from 'react';
-import { DetailsContainer, Labels, Values, Container, H1 } from './style';
+import { useState, useEffect } from 'react';
+import ReviewModal from '../reviewModal/ReviewModal';
+import { useGetReviewByIdQuery } from '../../app/reviewsSlice';
+import {
+    DetailsContainer,
+    Labels,
+    Values,
+    Container,
+    H1,
+    AddReview,
+} from './style';
 
-const OrderDetails = ({ order, showDetails, setShowDetails }) => {
+const OrderDetails = ({ order, showDetails, setShowDetails, status, role }) => {
+    const [showModal, setShowModal] = useState(false);
+    const { data: review } = useGetReviewByIdQuery(order.order_id);
+
     return (
         <>
+            {showModal && (
+                <ReviewModal
+                    setShowModal={setShowModal}
+                    shaper={order.surfboard_shaper}
+                    orderId={order.order_id}
+                />
+            )}
             {showDetails && (
                 <Container>
                     <H1 onClick={() => setShowDetails(false)}>X</H1>
@@ -38,6 +57,25 @@ const OrderDetails = ({ order, showDetails, setShowDetails }) => {
                                 <p>{order.surfboard_width}</p>
                             </Values>
                         </DetailsContainer>
+                    )}
+                    {!order.reviewed &&
+                        status === 'Completed' &&
+                        role === 'customer' && (
+                            <AddReview
+                                onClick={() => {
+                                    setShowDetails(false);
+                                    setShowModal(true);
+                                }}
+                            >
+                                Add Review
+                            </AddReview>
+                        )}
+                    {order.reviewed && review && (
+                        <div>
+                            <p>{review.title}</p>
+                            <p>{review.description}</p>
+                            {/* still need to render stars */}
+                        </div>
                     )}
                 </Container>
             )}

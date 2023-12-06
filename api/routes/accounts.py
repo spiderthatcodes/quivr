@@ -58,10 +58,7 @@ async def get_token(
 
 
 @router.get("/accounts", response_model=List[AccountOut])
-def list_accounts(
-    repo: AccountQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_current_account_data),
-):
+def list_accounts(repo: AccountQueries = Depends()):
     accounts = repo.get_all_accounts()
     return accounts
 

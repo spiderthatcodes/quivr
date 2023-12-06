@@ -25,9 +25,7 @@ class ReviewQueries(MongoQueries):
         return results
 
     def get_one_by_id(self, id: str) -> ReviewsOut:
-        if (
-            review := self.collection.find_one({"_id": ObjectId(id)})
-        ) is not None:
+        if (review := self.collection.find_one({"order_id": id})) is not None:
             review["id"] = str(review["_id"])
             return review
         raise HTTPException(
