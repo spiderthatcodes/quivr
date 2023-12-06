@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Background from "../../images/pexels-pixabay-390051.jpg";
+import Background from "../../images/CreateOrder.jpg";
 
 export const ImgBackground = styled.div`
   background-image: url(${Background});
@@ -27,6 +27,12 @@ export const OrderForm = styled.div`
 
   h1 {
     text-align: center;
+    border-bottom: 1px solid #364043;
+    color: #e2b842;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    text-align: left;
   }
 
   button {

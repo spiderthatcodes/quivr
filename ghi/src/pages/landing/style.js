@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Background from "../../images/pexels-pixabay-390051.jpg";
 
+
 export const Title = styled.h1`
   text-align: center;
-  /* font-family: "Luckiest Guy", cursive; */
   font-family: sans-serif;
   font-size: 35px;
   letter-spacing: 3px;

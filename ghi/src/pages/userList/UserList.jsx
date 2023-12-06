@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetAllAccountsQuery, useGetTokenQuery } from "../../app/authSlice";
 import UserRow from "../../components/userRow/UserRow";
-import { LandBackground, Table } from "../../constants";
+import { Table } from "../../constants";
+import { ImgBackground } from "./style";
 
 const UserList = () => {
   let { data: allUsers } = useGetAllAccountsQuery();
@@ -29,7 +30,7 @@ const UserList = () => {
 
   return (
     <>
-      <LandBackground>
+      <ImgBackground>
         {account && (
           <Table>
             <thead>
@@ -56,7 +57,7 @@ const UserList = () => {
             </tbody>
           </Table>
         )}
-      </LandBackground>
+      </ImgBackground>
     </>
   );
 };

@@ -37,7 +37,6 @@ export const NavbarLink = styled(Link)`
   color: #0d5274;
   /* color: white; */
   font-size: 20px;
-  font-family: menlo;
   text-decoration: none;
   margin: 30px;
   padding-right: 80px;

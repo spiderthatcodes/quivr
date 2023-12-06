@@ -15,7 +15,7 @@ export const Table = styled.table`
   padding: 12px;
   min-height: 60vh;
   background-color:#105469;
-
+  
   *,
   *:before,
   *:after {

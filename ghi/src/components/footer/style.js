@@ -7,7 +7,6 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  font-family: menlo;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -5,6 +5,7 @@ import {
   LandBackground,
   OurStory,
   AboutUs,
+  Slider
 } from "./style";
 import Surfboard1 from "../../images/Surfboard1.webp";
 import Surfboard2 from "../../images/Surfboard2.webp";
@@ -13,10 +14,10 @@ import Surfboard4 from "../../images/Surfboard4.webp";
 import Surfboard5 from "../../images/SurfBoard5.webp";
 import SurfVan from "../../images/SurfVan.jpg";
 import Shaper from "../../images/Shaper.jpg";
+import SliderComponent from '../landing/slider';
 
 const Landing = () => {
   return (
-    // <Wrapper>
     <LandContainer>
       <LandBackground>
         <Title>Welcome to Quivr</Title>
@@ -61,6 +62,7 @@ const Landing = () => {
         </div>
         <img src={Shaper} alt="Custom board a shaper made for a client" />
       </AboutUs>
+      <SliderComponent />
       <Div>
         <h1>Recently Made</h1>
         <img src={Surfboard1} alt="" />
@@ -93,7 +95,6 @@ const Landing = () => {
         <img src={SurfVan} alt="" />
       </OurStory>
     </LandContainer>
-    // </Wrapper>
   );
 };
 
