@@ -10,8 +10,6 @@ import {
     AddReview,
 } from './style';
 
-const Star = () => <p>&#x2606;</p>;
-
 const OrderDetails = ({ order, showDetails, setShowDetails, status, role }) => {
     const [showModal, setShowModal] = useState(false);
     const { data: review } = useGetReviewByIdQuery(order.order_id);
@@ -63,7 +61,12 @@ const OrderDetails = ({ order, showDetails, setShowDetails, status, role }) => {
                     {!order.reviewed &&
                         status === 'Completed' &&
                         role === 'customer' && (
-                            <AddReview onClick={() => setShowModal(true)}>
+                            <AddReview
+                                onClick={() => {
+                                    setShowDetails(false);
+                                    setShowModal(true);
+                                }}
+                            >
                                 Add Review
                             </AddReview>
                         )}

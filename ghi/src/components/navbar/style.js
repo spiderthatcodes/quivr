@@ -31,11 +31,16 @@ export const NavbarInnerContainer = styled.div`
 
 export const NavbarLinkContainer = styled.div`
     display: flex;
+    .vis {
+        display: flex;
+    }
+    .hidden {
+        visibility: hidden;
+    }
 `;
 
 export const NavbarLink = styled(Link)`
     color: #0d5274;
-    /* color: white; */
     font-size: 20px;
     text-decoration: none;
     margin: 30px;
