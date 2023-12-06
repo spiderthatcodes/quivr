@@ -25,6 +25,28 @@ export const Container = styled.div`
     border-radius: 8px;
     padding: 0 16px;
     font-weight: bold;
+
+    .statusContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 0 15%;
+    }
+    #status {
+        height: 36px;
+    }
+
+    #statusBox {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    button {
+        padding: 8px 14px;
+    }
 `;
 
 export const H1 = styled.h1`

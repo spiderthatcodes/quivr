@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ReviewModal from '../reviewModal/ReviewModal';
-import { useGetReviewByIdQuery } from '../../app/reviewsSlice';
+import Review from '../review/Review';
+import { useUpdateOrderMutation } from '../../app/ordersSlice';
+import { OrderOptions } from '../../constants';
 import {
     DetailsContainer,
     Labels,
@@ -12,7 +14,20 @@ import {
 
 const OrderDetails = ({ order, showDetails, setShowDetails, status, role }) => {
     const [showModal, setShowModal] = useState(false);
-    const { data: review } = useGetReviewByIdQuery(order.order_id);
+    const [newStatus, setNewStatus] = useState('');
+    const [update] = useUpdateOrderMutation();
+    const temprole = 'shaper';
+
+    const handleStatus = () => {
+        const updateVal = {
+            id: order.order_id,
+            data: {
+                order_status: newStatus,
+            },
+        };
+        update(updateVal);
+        setShowDetails(false);
+    };
 
     return (
         <>
@@ -70,13 +85,36 @@ const OrderDetails = ({ order, showDetails, setShowDetails, status, role }) => {
                                 Add Review
                             </AddReview>
                         )}
-                    {order.reviewed && review && (
-                        <div>
-                            <p>{review.title}</p>
-                            <p>{review.description}</p>
-                            {/* still need to render stars */}
+                    {temprole === 'shaper' && status !== 'Completed' && (
+                        <div className='statusContainer'>
+                            <h2>Update Status</h2>
+                            <div id='statusBox'>
+                                <select
+                                    onChange={(e) =>
+                                        setNewStatus(e.target.value)
+                                    }
+                                    name='status'
+                                    id='status'
+                                    value={newStatus}
+                                    required
+                                >
+                                    <option>Choose a status...</option>
+                                    {OrderOptions.map((item, index) => (
+                                        <option
+                                            key={index}
+                                            value={item}
+                                        >
+                                            {item}
+                                        </option>
+                                    ))}
+                                </select>
+                                <button onClick={() => handleStatus()}>
+                                    Update
+                                </button>
+                            </div>
                         </div>
                     )}
+                    {order.reviewed && <Review order={order} />}
                 </Container>
             )}
         </>
