@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const OrderFormStyle = styled.div`
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -10,10 +10,13 @@ export const OrderFormStyle = styled.div`
   color: #e3f5fd;
   text-align: center;
   align-items: center;
-  padding: 32px 5rem;
+  padding: 20px;
   border-radius: 12px;
   text-align: left;
-  opacity: 0.91;
+
+  img{
+    height: 30vh;
+  }
 
   h1 {
     text-align: center;

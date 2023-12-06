@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: fixed;
-  top: 0vh;
-  bottom: 0vh;
-  right: 0;
-  width: 20em;
-  background: #333;
-  color: #eee;
-  padding: 1em;
+    top: 15vh;
+    bottom: 25vh;
+    right: 0;
+    width: 25em;
+    background: #072c42;
+    color: #eee;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 0 16px;
+    font-weight: bold;
 
   h2 {
     text-align: end;

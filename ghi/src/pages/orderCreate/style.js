@@ -13,4 +13,5 @@ export const ImgBackground = styled.div`
 export const StyledCart = styled.div`
   display: flex;
   justify-content: flex-end;
+  
 `;
