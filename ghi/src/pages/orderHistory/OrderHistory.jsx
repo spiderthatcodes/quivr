@@ -4,7 +4,8 @@ import { useGetAllOrdersQuery } from '../../app/ordersSlice';
 import { useGetTokenQuery } from '../../app/authSlice';
 import OrderRow from '../../components/orderRow/OrderRow';
 import OrderDetails from '../../components/orderDetails/OrderDetails';
-import { Wrapper, Table, LandBackground } from '../../constants';
+import { ImgBackground } from './style';
+import { Wrapper, Table } from '../../constants';
 
 const OrderHistory = () => {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ const OrderHistory = () => {
         );
 
     return (
-        <LandBackground>
+        <ImgBackground>
             <Wrapper>
                 {account && (
                     <>
@@ -84,7 +85,7 @@ const OrderHistory = () => {
                     </>
                 )}
             </Wrapper>
-        </LandBackground>
+        </ImgBackground>
     );
 };
 

@@ -15,7 +15,6 @@ const Star = () => <p>&#x2606;</p>;
 const OrderDetails = ({ order, showDetails, setShowDetails, status, role }) => {
     const [showModal, setShowModal] = useState(false);
     const { data: review } = useGetReviewByIdQuery(order.order_id);
-    console.log(review.rating);
 
     return (
         <>
