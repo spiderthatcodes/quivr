@@ -21,3 +21,7 @@ Coding out the order details page today. Also examined the backend to see about 
 # 11/29
 
 Lots of bug fixes today, added a dedicated page for the login rather than having it on the home page
+
+# 12/4
+
+Working on the frontend review functionality. Will then work on the square implementation.

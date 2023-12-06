@@ -1,72 +1,68 @@
-import React, { useState } from "react";
+import React from 'react';
 import {
-  NavbarContainer,
-  LeftContainer,
-  RightContainer,
-  NavbarInnerContainer,
-  NavbarExtendedContainer,
-  NavbarLinkContainer,
-  NavbarLink,
-  Logo,
-  OpenLinksButton,
-  NavbarLinkExtended,
-  Button,
-} from "./style";
-import LogoImg from "../../images/logo.png";
-import { useLogoutMutation } from "../../app/authSlice";
-import { useNavigate, Link } from "react-router-dom";
+    NavbarContainer,
+    LeftContainer,
+    RightContainer,
+    NavbarInnerContainer,
+    NavbarLinkContainer,
+    NavbarLink,
+    Logo,
+    Button,
+} from './style';
+import LogoImg from '../../images/logo.png';
+import { useLogoutMutation, useGetTokenQuery } from '../../app/authSlice';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Navbar() {
-  const navigate = useNavigate();
-  const [extendnavbar, setExtendNavbar] = useState(null);
-  const [logout] = useLogoutMutation();
+    const navigate = useNavigate();
+    const { data: account } = useGetTokenQuery();
+    const [logout] = useLogoutMutation();
 
-  return (
-    <NavbarContainer extendnavbar={extendnavbar}>
-      <NavbarInnerContainer>
-        <LeftContainer>
-          <Logo src={LogoImg}></Logo>
-        </LeftContainer>
-        <RightContainer>
-          <NavbarLinkContainer>
-            <NavbarLink to="/">Home</NavbarLink>
-            <NavbarLink to="/create-order">Create Order</NavbarLink>
-            <NavbarLink to="/order-history">Order History</NavbarLink>
-            <NavbarLink to="/users">User</NavbarLink>
-            <Button>
-              <Link to="/login">Login</Link>
-            </Button>
-            <Button
-              onClick={() => {
-                logout();
-                navigate("/");
-              }}
-            >
-              Logout
-            </Button>
-            <OpenLinksButton
-              onClick={() => {
-                setExtendNavbar((curr) => !curr);
-              }}
-            >
-              {extendnavbar ? <>&#10005;</> : <>&#8801;</>}
-            </OpenLinksButton>
-          </NavbarLinkContainer>
-        </RightContainer>
-      </NavbarInnerContainer>
-      {extendnavbar && (
-        <NavbarExtendedContainer>
-          <NavbarLink to="/">Home</NavbarLink>
-          <NavbarLinkExtended to="/create-order">
-            Create Order
-          </NavbarLinkExtended>
-          <NavbarLinkExtended to="/order-history">
-            Order History
-          </NavbarLinkExtended>
-          <NavbarLinkExtended to="/users">User</NavbarLinkExtended>
-        </NavbarExtendedContainer>
-      )}
-    </NavbarContainer>
-  );
+    return (
+        <NavbarContainer>
+            <NavbarInnerContainer>
+                <LeftContainer>
+                    <Logo src={LogoImg}></Logo>
+                </LeftContainer>
+                <RightContainer>
+                    <NavbarLinkContainer>
+                        <div className={account ? 'vis' : 'hidden'}>
+                            <NavbarLink to='/'>Home</NavbarLink>
+                            <NavbarLink to='/create-order'>
+                                Create Order
+                            </NavbarLink>
+                            <NavbarLink to='/order-history'>
+                                Order History
+                            </NavbarLink>
+                        </div>
+                        <div
+                            className={
+                                account && account?.role !== 'customer'
+                                    ? 'vis'
+                                    : 'hidden'
+                            }
+                        >
+                            <NavbarLink to='/users'>User</NavbarLink>
+                        </div>
+                        <div className={!account ? 'vis' : 'hidden'}>
+                            <Button>
+                                <Link to='/login'>Login</Link>
+                            </Button>
+                        </div>
+                        <div className={account ? 'vis' : 'hidden'}>
+                            <Button
+                                onClick={() => {
+                                    logout();
+                                    navigate('/');
+                                }}
+                            >
+                                Logout
+                            </Button>
+                        </div>
+                    </NavbarLinkContainer>
+                </RightContainer>
+            </NavbarInnerContainer>
+        </NavbarContainer>
+    );
 }
 export default Navbar;

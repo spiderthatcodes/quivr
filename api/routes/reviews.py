@@ -39,7 +39,7 @@ def list_reviews(
 
 @router.get(
     "/reviews/{id}",
-    response_description="Get a review by id",
+    response_description="Get a review by order id",
     response_model=ReviewsOut,
 )
 def find_review(
