@@ -16,7 +16,6 @@ const OrderDetails = ({ order, showDetails, setShowDetails, status, role }) => {
     const [showModal, setShowModal] = useState(false);
     const [newStatus, setNewStatus] = useState('');
     const [update] = useUpdateOrderMutation();
-    const temprole = 'shaper';
 
     const handleStatus = () => {
         const updateVal = {
@@ -85,7 +84,7 @@ const OrderDetails = ({ order, showDetails, setShowDetails, status, role }) => {
                                 Add Review
                             </AddReview>
                         )}
-                    {temprole === 'shaper' && status !== 'Completed' && (
+                    {role === 'shaper' && status !== 'Completed' && (
                         <div className='statusContainer'>
                             <h2>Update Status</h2>
                             <div id='statusBox'>
