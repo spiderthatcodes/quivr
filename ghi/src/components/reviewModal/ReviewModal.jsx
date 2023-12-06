@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useCreateReviewMutation } from '../../app/reviewsSlice';
+import { useUpdateOrderMutation } from '../../app/ordersSlice';
 import StarRating from '../starRating/StarRating';
 import { ModalContainer } from './style';
 
@@ -8,6 +9,7 @@ const ReviewModal = ({ setShowModal, shaper, orderId }) => {
     const [reviewtitle, setTitle] = useState('');
     const [desc, setDescription] = useState('');
     const [review] = useCreateReviewMutation();
+    const [update] = useUpdateOrderMutation();
 
     const handleReview = () => {
         const addRating = {
@@ -18,6 +20,13 @@ const ReviewModal = ({ setShowModal, shaper, orderId }) => {
             order_id: orderId,
         };
         review(addRating);
+        const updateVal = {
+            id: orderId,
+            data: {
+                reviewed: true,
+            },
+        };
+        update(updateVal);
         setShowModal(false);
     };
 
@@ -44,6 +53,7 @@ const ReviewModal = ({ setShowModal, shaper, orderId }) => {
                 value={desc}
                 onChange={(e) => setDescription(e.target.value)}
             ></textarea>
+            <br />
             <button onClick={() => handleReview()}>Add Review</button>
         </ModalContainer>
     );

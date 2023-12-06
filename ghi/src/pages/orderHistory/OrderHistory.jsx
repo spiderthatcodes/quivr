@@ -20,19 +20,17 @@ const OrderHistory = () => {
             navigate('/');
         }
         if (allOrders && account?.role === 'customer') {
-            let orderlist = allOrders.orders;
-            let list = orderlist.filter(
+            let list = allOrders.filter(
                 (item) => item.customer_username === account.username
             );
             setOrders(list);
         } else if (allOrders && account?.role === 'shaper') {
-            let orderlist = allOrders.orders;
-            let list = orderlist.filter(
+            let list = allOrders.filter(
                 (item) => item.surfboard_shaper === account.username
             );
             setOrders(list);
         } else {
-            !ordersLoading && setOrders(allOrders.orders);
+            !ordersLoading && setOrders(allOrders);
         }
     }, [account, allOrders, isLoading, navigate, ordersLoading]);
 
@@ -52,6 +50,8 @@ const OrderHistory = () => {
                             order={detailedOrder}
                             showDetails={showDetails}
                             setShowDetails={setShowDetails}
+                            status={detailedOrder.order_status}
+                            role={account.role}
                         />
                         <Table>
                             <thead>
@@ -75,7 +75,6 @@ const OrderHistory = () => {
                                         item={item}
                                         role={account.role}
                                         key={index}
-                                        status={item.order_status}
                                         setShowDetails={setShowDetails}
                                         setDetailedOrder={setDetailedOrder}
                                     />
