@@ -22,7 +22,7 @@ def test_list_orders():
 
     # Assert
     assert response.status_code == 200
-    assert response.json() == {"orders": []}
+    assert response.json() == []
 
 
 # class CreateOrderQueries:

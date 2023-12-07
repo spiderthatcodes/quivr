@@ -13,62 +13,42 @@ import Surfboard4 from "../../images/Surfboard4.webp";
 import Surfboard5 from "../../images/SurfBoard5.webp";
 import SurfVan from "../../images/SurfVan.jpg";
 import Shaper from "../../images/Shaper.jpg";
-import Carousel  from "../../components/Carousel/Carousel";
-import Slider1 from"../../images/Slider1.png"
-import Slider2 from"../../images/Slider2.png"
-import Slider3 from"../../images/Slider3.png"
-
+import Carousel from "../../components/Carousel/Carousel";
+import Slider1 from "../../images/Slider1.png";
+import Slider2 from "../../images/Slider2.png";
+import Slider3 from "../../images/Slider3.png";
 
 const Landing = () => {
   const items = [Slider1, Slider2, Slider3];
   return (
     <LandContainer>
-      <LandBackground>
-        <Title>Welcome to Quivr</Title>
-      </LandBackground>
+      <LandBackground>{/* <Title>Welcome to Quivr</Title> */}</LandBackground>
       <AboutUs>
         <div>
-          <h1>About Us</h1>
+          <Title>We make ordering surfboards fun again</Title>
           <p>
-            From the moment you step into our shop, you'll embark on a
-            collaborative journey with our skilled shapers. They take the time
-            to listen, understand your unique surfing needs, and translate that
-            understanding into a design that captures the essence of your
-            surfing soul.
+            Now you can order a custom surfboard directly with a shaper of your
+            choice, and receive real-time updates of the current status of your
+            order.
+          </p>
+          <p>
+            Gone are the days of placing an order with a random burnout from the
+            shop down the street. Orders are submitted directly to the shaper of
+            your choice, removing the likelihood of your order coming back
+            messed up.
           </p>
           <p>
             {" "}
-            Whether you're after the speed and agility of a shortboard or the
-            graceful glide of a longboard, our shapers possess the knowledge and
-            finesse to bring your vision to life. The shaping process at [Shop
-            Name] is a fusion of art and science.
-          </p>
-          <p>
-            {" "}
-            Our shapers meticulously consider factors such as board dimensions,
-            rocker, rails, and concave to create a bespoke surfboard that not
-            only performs flawlessly on the waves but also feels like an
-            extension of your body.
-          </p>
-          <p>
-            {" "}
-            Each subtle curve and contour is crafted with precision, reflecting
-            years of experience and a commitment to pushing the boundaries of
-            surfboard design.In addition to our dedication to customization, we
-            take pride in our commitment to sustainability.
-          </p>
-          <p>
-            Our shapers embrace eco-friendly materials and responsible
-            manufacturing practices, ensuring that your custom board not only
-            elevates your surfing experience but also contributes to the
-            preservation of our oceans.
+            We bring much needed transparency to a process that has been flawed
+            for too long. Curious what the status of yur order is? Log in to
+            find out.
           </p>
         </div>
         <img src={Shaper} alt="Custom board a shaper made for a client" />
       </AboutUs>
       <Carousel items={items} />
       <Div>
-        <h1>Recently Made</h1>
+        <h1>Recent Orders</h1>
         <img src={Surfboard1} alt="" />
         <img src={Surfboard2} alt="" />
         <img src={Surfboard3} alt="" />

@@ -6,8 +6,6 @@ export const Title = styled.h1`
   font-family: sans-serif;
   font-size: 35px;
   letter-spacing: 3px;
-  margin-bottom: 0px;
-  margin-top: 0px;
   color: white;
 `;
 
@@ -32,6 +30,8 @@ export const LandBackground = styled.div`
 export const Div = styled.div`
   display: flex;
   justify-content: space-evenly;
+  padding: 30px 80px 0 80px;
+
   img {
     height: 20vh;
     width: 20vh;
@@ -65,16 +65,21 @@ export const AboutUs = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 30px 80px;
   line-height: 30px;
   background-color: #073e4f;
   color: white;
-  margin-top: 15px;
+  margin-top: 0px;
+
   img {
-    height: 70vh;
-    width: 70vh;
+    height: 50vh;
+    width: 60vh;
+    margin-top: 30px;
   }
   div {
     max-width: 50%;
+  }
+  p {
+    font-size: 20px;
   }
 `;
