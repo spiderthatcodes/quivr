@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
-
 export const CarouselContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  background-color: #F7E7BE;
+  background-color: #f7e7be;
+
   .container {
-    width: 50%;
+    /* width: 50%; */
     display: flex;
-    gap: 100%;
-    padding-left: 430px;
+    gap: 53em;
+    padding-left: 24em;
   }
-
-
 `;
 
 export const CarouselWrapper = styled.div`
@@ -24,8 +22,7 @@ export const CarouselItem = styled.div`
   min-width: 100%;
   img {
     padding-top: 50px;
-    padding-left: 26%;
+    padding-left: 24em;
     width: 100vh;
-
   }
 `;
