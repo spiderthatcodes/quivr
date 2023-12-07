@@ -1,5 +1,5 @@
 import { OrderFormStyle } from "./style";
-import { Container1, Container2, Container3 } from "./style";
+import { Container1, Container2, Container3,Buttons } from "./style";
 import Orderboard from "../../images/Orderboard.png";
 
 export default function OrderForm({
@@ -194,9 +194,7 @@ export default function OrderForm({
           ></textarea>
           <br />
           <img src={Orderboard} alt="" />
-
-          <img src="" alt="" />
-          <div id="buttons">
+          <Buttons>
             <button onClick={(e) => handleSubmit(e)}>Add to cart</button>
             <br />
 
@@ -204,7 +202,7 @@ export default function OrderForm({
             {/* {error ? (
           <div>There was an error creating your order. {error}</div>
         ) : null} */}
-          </div>
+          </Buttons>
         </Container3>
       </OrderFormStyle>
     </>

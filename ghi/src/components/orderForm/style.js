@@ -15,6 +15,8 @@ export const OrderFormStyle = styled.div`
 
   img{
     height: 30vh;
+    width: 14em;
+    padding-right: 2em;
   }
 
   h1 {
@@ -33,22 +35,23 @@ export const OrderFormStyle = styled.div`
   }
 
   input {
-    width: 10vw;
+    width: 9vw;
     height: 2.2vw;
-    margin: 10px 0;
-    padding-left:4px;
+    margin: 10px;
+    padding-left:5px;
   }
 
   select {
-    width: 10vw;
+    width: 184px;
     height: 2.5vw;
-    margin: 10px 0;
-    padding-left: 5px;
+    margin: 10px;
+    margin-left: 11px;
   }
 
   textarea {
-    height: 5vw;
+    height: 10vw;
     width: 20vw;
+    margin-top:45px;
   }
 `;
 
@@ -60,10 +63,15 @@ export const Container1 = styled.div`
 
 export const Container2 = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 `;
 
 export const Container3 = styled.div`
   display: flex;
   justify-content: space-evenly;
+`;
+
+export const Buttons = styled.div`
+  margin-top: 6em;
+  padding-right: 2em;
 `;
