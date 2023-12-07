@@ -28,7 +28,7 @@ const Landing = () => {
           <Title>We make ordering surfboards fun again</Title>
           <p>
             Now you can order a custom surfboard directly with a shaper of your
-            choice, and receive real-time updates of the current status of your
+            choice, and receive real-time updates on the current status of your
             order.
           </p>
           <p>

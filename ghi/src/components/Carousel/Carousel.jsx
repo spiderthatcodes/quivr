@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CarouselContainer, CarouselWrapper, CarouselItem } from "./style";
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import { IconButton } from "@mui/material";
 
 const Carousel = ({ items }) => {
@@ -31,28 +31,12 @@ const Carousel = ({ items }) => {
         ))}
       </CarouselWrapper>
       <div className="container">
-      <IconButton
-        // style={{
-        //   position: "absolute",
-        //   top: "0",
-        //   right: "0",
-        // }}
-        onClick={prevSlide}
-      >
-        <ArrowBackIosRoundedIcon fontSize="large" />
-      </IconButton>
-      <IconButton
-        // style={{
-        //   position: "absolute",
-        //   top: "0",
-        //   right: "0",
-        // }}
-        onClick={nextSlide}
-      >
-        <ArrowForwardIosRoundedIcon fontSize="large" />
-      </IconButton>
-      {/* <button onClick={prevSlide}>Prev</button> */}
-      {/* <button onClick={nextSlide}>Next</button> */}
+        <IconButton k={prevSlide}>
+          <ArrowBackIosRoundedIcon fontSize="large" />
+        </IconButton>
+        <IconButton onClick={nextSlide}>
+          <ArrowForwardIosRoundedIcon fontSize="large" />
+        </IconButton>
       </div>
     </CarouselContainer>
   );
