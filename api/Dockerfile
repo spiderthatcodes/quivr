@@ -14,7 +14,7 @@ COPY main.py main.py
 # Copy all of the subdirectories in your service's directory
 # Modify these instructions to do that
 COPY queries queries
-COPY routers routers
+COPY routes routes
 COPY models models
 COPY authenticator.py authenticator.py
 COPY main.py main.py
