@@ -17,9 +17,9 @@ lint-test-job:
 # Run the unit tests
 api-unit-tests-job:
   variables:
-    DATABASE_URL: ${CONNECTION_STRING}
-    DB_NAME: ${DB_NAME}
-    SIGNING_KEY: ${SIGNING_KEY}
+    DATABASE_URL: "does-not-matter"
+    DB_NAME: "does-not-matter"
+    SIGNING_KEY: "does-not-matter"
   image: python:3-bullseye
   stage: test
   needs:
