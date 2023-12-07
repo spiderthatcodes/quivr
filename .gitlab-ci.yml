@@ -17,6 +17,7 @@ lint-test-job:
 # Run the unit tests
 api-unit-tests-job:
   variables:
+    CORS_HOST: "does-not-matter"
     DATABASE_URL: "does-not-matter"
     DB_NAME: "does-not-matter"
     SIGNING_KEY: "does-not-matter"
