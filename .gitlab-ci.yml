@@ -17,10 +17,10 @@ lint-test-job:
 # Run the unit tests
 api-unit-tests-job:
   variables:
-    CORS_HOST: "does-not-matter"
-    DATABASE_URL: "does-not-matter"
-    DB_NAME: "does-not-matter"
-    SIGNING_KEY: "does-not-matter"
+    CORS_HOST: http://localhost:3000
+    DATABASE_URL: ${CONNECTION_STRING}
+    DB_NAME: ${DB_NAME}
+    SIGNING_KEY: ${SIGNING_KEY}
   image: python:3-bullseye
   stage: test
   needs:
