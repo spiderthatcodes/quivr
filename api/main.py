@@ -19,6 +19,7 @@ app.add_middleware(
 )
 
 
+# Must have this for deployment
 @app.get("/")
 def root():
     return {"message": "Ouch!!! You hit my root."}
