@@ -10,7 +10,7 @@ const Cart = ({ cartCount, setShowCart }) => {
   return (
     // clicking on this should activate the 'slider panel'
     <div onClick={() => handleClick()}>
-      <Badge color="primary" badgeContent={cartCount}>
+      <Badge color="primary" fontSize="large" badgeContent={cartCount}>
         {/* <Badge style={{ color: 'white' }} badgeContent={count}> */}
         <ShoppingCartIcon />{" "}
       </Badge>

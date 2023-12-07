@@ -18,8 +18,24 @@ class OrderQueries(MongoQueries):
         data["date"] = now.strftime("%Y-%m-%d, %H:%M")
         self.collection.insert_one(data)
         data["order_id"] = str(data["_id"])
-
         return OrderOut(**data)
+
+    # def createMany(
+    #         self, orderList: List(OrderIn), customer_username: str
+    #     ) -> dict:
+    #         result = []
+    #         for data in orderList:
+    #             data = order.dict()
+    #             data["customer_username"] = customer_username
+    #             data["order_status"] = "Order received"
+    #             data["reviewed"] = False
+    #             now = datetime.datetime.utcnow()
+    #             data["date"] = now.strftime("%Y-%m-%d, %H:%M")
+    #             result.append(data)
+    #         self.collection.insertMany(result)
+    #         # data["order_id"] = str(data["_id"])
+
+    # return {"message": "orders created"}
 
     def list_orders(self) -> OrderOut:
         orders = []

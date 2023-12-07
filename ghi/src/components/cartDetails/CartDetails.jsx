@@ -1,46 +1,83 @@
-import { Wrapper, CartContainer } from "./style";
+import Orderboard from "../../images/Orderboard.png";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import { IconButton } from "@mui/material";
+
+import {
+  Wrapper,
+  CartContainer,
+  StyleTable,
+  STHead,
+  STHeadTR,
+  STBody,
+  STR,
+  STD1,
+  STD2,
+  STD3,
+  STH,
+  STH1,
+  P1,
+  P2,
+  Button1,
+  StyledTotal,
+} from "./style";
 
 const CartDetails = ({ order, setShowCart, addToCart }) => {
   const price = "$849";
 
   return (
-    <>
-      <Wrapper>
+    <Wrapper>
+      {addToCart.length === 0 ? (
+        <h2>Your cart is currently empty</h2>
+      ) : (
         <CartContainer>
-          {addToCart.length === 0 ? (
-            <h2>Your cart is currently empty</h2>
-          ) : (
-            <table>
-              <thead>
-                <tr>
-                  <th>Item Description</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {order &&
-                  order.map((item, index) => {
-                    return (
-                      <tr key={index}>
-                        <td>
-                          {item.surfboard_shaper} {item.surfboard_model}
-                          {item.surfboard_length} x {item.surfboard_width} x
-                          {item.surfboard_thickness}, description:
-                          {item.surfboard_desc}
-                        </td>
-                        <td>{price}</td>
-                      </tr>
-                    );
-                  })}
-              </tbody>
-            </table>
-          )}
+          <div>
+            <h1 id="your-cart">Cart Contents...Get Stoked!</h1>
+          </div>
+          <StyleTable>
+            <STHead>
+              <STHeadTR>
+                <STH1>Item</STH1>
+                <STH>Description</STH>
+                <STH>Price</STH>
+              </STHeadTR>
+            </STHead>
+            <STBody>
+              {order &&
+                order.map((item, index) => {
+                  return (
+                    <STR key={index}>
+                      <STD1>
+                        <img src={Orderboard} alt="" />
+                      </STD1>
+                      <STD2>
+                        {item.surfboard_shaper} - {item.surfboard_model},
+                        {item.surfboard_length} x {item.surfboard_width} x
+                        {item.surfboard_thickness}
+                      </STD2>
+                      <STD3>{price}</STD3>
+                    </STR>
+                  );
+                })}
+            </STBody>
+          </StyleTable>
+          <StyledTotal>
+            <P1>Subtotal</P1>
+            <P2>Add Total Here</P2>
+          </StyledTotal>
+          <Button1 onClick={() => console.log("pay-me")}>Checkout</Button1>
         </CartContainer>
-        <button onClick={() => setShowCart(false)}>Close</button>
-        <br />
-        <button onClick={() => console.log("pay-me")}>Checkout</button>
-      </Wrapper>
-    </>
+      )}
+      <IconButton
+        style={{
+          position: "absolute",
+          top: "0",
+          right: "0",
+        }}
+        onClick={() => setShowCart(false)}
+      >
+        <CloseRoundedIcon fontSize="large" />
+      </IconButton>
+    </Wrapper>
   );
 };
 
