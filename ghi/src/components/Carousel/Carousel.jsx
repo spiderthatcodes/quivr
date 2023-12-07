@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { CarouselContainer, CarouselWrapper, CarouselItem,Container } from "./style";
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
+import { CarouselContainer, CarouselWrapper, CarouselItem } from "./style";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import { IconButton } from "@mui/material";
 
 const Carousel = ({ items }) => {
@@ -30,18 +30,14 @@ const Carousel = ({ items }) => {
           </CarouselItem>
         ))}
       </CarouselWrapper>
-      <Container>
-      <IconButton
-        onClick={prevSlide}
-      >
-        <ArrowBackIosRoundedIcon fontSize="large" />
-      </IconButton>
-      <IconButton
-        onClick={nextSlide}
-      >
-        <ArrowForwardIosRoundedIcon fontSize="large" />
-      </IconButton>
-      </Container>
+      <div className="container">
+        <IconButton k={prevSlide}>
+          <ArrowBackIosRoundedIcon fontSize="large" />
+        </IconButton>
+        <IconButton onClick={nextSlide}>
+          <ArrowForwardIosRoundedIcon fontSize="large" />
+        </IconButton>
+      </div>
     </CarouselContainer>
   );
 };

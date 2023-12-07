@@ -7,8 +7,6 @@ from routes.orders import router as orders_router
 from routes.reviews import router as reviews_router
 from routes.invoices import router as invoices_router
 
-# from pymongo import MongoClient
-
 
 app = FastAPI()
 
@@ -23,7 +21,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "You hit my root. Ouch!!!"}
+    return {"message": "Ouch!!! You hit my root."}
 
 
 app.include_router(authenticator.router, tags=["Auth"])
