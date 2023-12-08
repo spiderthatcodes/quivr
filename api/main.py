@@ -5,7 +5,6 @@ import os
 from routes import accounts
 from routes.orders import router as orders_router
 from routes.reviews import router as reviews_router
-from routes.invoices import router as invoices_router
 
 # from starlette.middleware.cors import CORSMiddleware
 
@@ -33,4 +32,3 @@ app.include_router(authenticator.router, tags=["Auth"])
 app.include_router(accounts.router, tags=["Auth"])
 app.include_router(reviews_router, tags=["reviews"])
 app.include_router(orders_router, tags=["orders"])
-app.include_router(invoices_router, tags=["invoices"])

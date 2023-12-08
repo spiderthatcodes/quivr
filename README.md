@@ -64,4 +64,3 @@ Description - A string that allows you to write a review description.
 
 ### Orders Model
 
-### Invoices Model
