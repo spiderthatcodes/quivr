@@ -6,8 +6,6 @@ from routes import accounts
 from routes.orders import router as orders_router
 from routes.reviews import router as reviews_router
 
-# from starlette.middleware.cors import CORSMiddleware
-
 
 app = FastAPI()
 

@@ -13,7 +13,7 @@ export const OrderFormStyle = styled.div`
   padding: 20px;
   border-radius: 12px;
 
-  img{
+  img {
     height: 30vh;
     width: 14em;
     padding-right: 2em;
@@ -21,6 +21,12 @@ export const OrderFormStyle = styled.div`
 
   h1 {
     text-align: center;
+    color: white;
+  }
+
+  h3 {
+    font-weight: normal;
+    font-size: 16px;
   }
 
   button {
@@ -38,7 +44,7 @@ export const OrderFormStyle = styled.div`
     width: 9vw;
     height: 2.2vw;
     margin: 10px;
-    padding-left:5px;
+    padding-left: 5px;
   }
 
   select {
@@ -51,7 +57,7 @@ export const OrderFormStyle = styled.div`
   textarea {
     height: 10vw;
     width: 20vw;
-    margin-top:45px;
+    margin-top: 45px;
   }
 `;
 
