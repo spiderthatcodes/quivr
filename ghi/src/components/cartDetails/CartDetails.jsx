@@ -22,7 +22,8 @@ import {
 } from "./style";
 
 const CartDetails = ({ order, setShowCart, addToCart }) => {
-  const price = "$849";
+  const price = 849;
+  const subtotal = price * addToCart.length;
 
   return (
     <Wrapper>
@@ -50,11 +51,15 @@ const CartDetails = ({ order, setShowCart, addToCart }) => {
                         <img src={Orderboard} alt="" />
                       </STD1>
                       <STD2>
-                        {item.surfboard_shaper} - {item.surfboard_model},
-                        {item.surfboard_length} x {item.surfboard_width} x
-                        {item.surfboard_thickness}
+                        {`${item.surfboard_shaper} -
+                        ${
+                          item.surfboard_model.charAt(0).toUpperCase() +
+                          item.surfboard_model.slice(1)
+                        },
+                        ${item.surfboard_length}' x ${item.surfboard_width}" x
+                        ${item.surfboard_thickness}"`}
                       </STD2>
-                      <STD3>{price}</STD3>
+                      <STD3>${price}</STD3>
                     </STR>
                   );
                 })}
@@ -62,7 +67,7 @@ const CartDetails = ({ order, setShowCart, addToCart }) => {
           </StyleTable>
           <StyledTotal>
             <P1>Subtotal</P1>
-            <P2>Add Total Here</P2>
+            <P2>${subtotal}.00</P2>
           </StyledTotal>
           <Button1 onClick={() => console.log("pay-me")}>Checkout</Button1>
         </CartContainer>
