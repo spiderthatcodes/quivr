@@ -44,6 +44,30 @@ async def create_account(
     return AccountToken(account=account, **token.dict())
 
 
+@router.post("/accounts/add", response_model=dict | HttpError)
+async def create_account_without_login(
+    info: AccountIn,
+    repo: AccountQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    hashed_password = authenticator.hash_password(info.password)
+
+    role = account_data["role"]
+
+    if role != "admin":
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="You do not have the correct permissions",
+        )
+    try:
+        return repo.create(info, hashed_password)
+    except DuplicateAccountError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Cannot create an account with those credentials",
+        )
+
+
 @router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,

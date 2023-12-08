@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLoginMutation, useSignupMutation } from '../../app/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { SignUp, AccountForm,LandBackground} from '../login/style';
+import { SignUp, LandBackground } from './style';
+import { AccountForm } from '../../constants';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -45,8 +46,7 @@ const Login = () => {
 
     return (
         <>
-        <LandBackground>
-        </LandBackground>
+            <LandBackground></LandBackground>
             <AccountForm>
                 <h1>Welcome!</h1>
                 <p>Username:</p>
@@ -120,7 +120,7 @@ const Login = () => {
                     {loggingIn ? 'Need to Sign Up?' : 'Login Instead'}
                 </SignUp>
             </AccountForm>
-            </>
+        </>
     );
 };
 

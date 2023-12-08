@@ -16,9 +16,9 @@ export const authApi = createApi({
             providesTags: ['Account'],
         }),
 
-        signup: builder.mutation({
+        signupWithoutLogin: builder.mutation({
             query: (body) => ({
-                url: '/accounts',
+                url: '/accounts/add',
                 body,
                 method: 'POST',
                 credentials: 'include',
@@ -94,6 +94,7 @@ export const {
     useLoginMutation,
     useLogoutMutation,
     useSignupMutation,
+    useSignupWithoutLoginMutation,
     useGetAllAccountsQuery,
     useGetAccountsByRoleQuery,
     useCreateAccountMutation,
