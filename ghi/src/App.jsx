@@ -8,8 +8,10 @@ import { FooterContainer } from "./components/footer/Footer.jsx";
 import Login from "./pages/login/Login.jsx";
 
 function App() {
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, "");
   return (
-    <Router>
+    <Router basename={basename}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
