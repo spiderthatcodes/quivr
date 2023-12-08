@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useCreateReviewMutation } from '../../app/reviewsSlice';
 import { useUpdateOrderMutation } from '../../app/ordersSlice';
 import StarRating from '../starRating/StarRating';
-import { ModalContainer } from './style';
+import { ModalContainer } from '../../constants';
 
 const ReviewModal = ({ setShowModal, shaper, orderId }) => {
     const [starrating, setRating] = useState(0);
