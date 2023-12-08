@@ -7,18 +7,19 @@ from routes.orders import router as orders_router
 from routes.reviews import router as reviews_router
 from routes.invoices import router as invoices_router
 
+# from starlette.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    # allow_origins=[os.environ.get("CORS_HOST", "http://localhost:3000")],
-    allow_origins=[
-        os.environ.get("CORS_HOST", "https://spidergrrljess.gitlab.io")
-    ],
+    allow_origins=[os.environ.get("CORS_HOST", "http://localhost:3000")],
+    # allow_origins=[os.environ.get("CORS_HOST", "REACT_APP_API_HOST")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    # allow_origins=["*"],
 )
 
 
