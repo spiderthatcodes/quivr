@@ -46,21 +46,39 @@ To view the project, open http://localhost:3000/ in your browser
 ![Application_Architecture](/uploads/4005e5365eaf00718162d2b959c73112/Application_Architecture.png)
 
 ## Endpoints
-![Application_Endpoints](/uploads/3177531b716057d42757a1a0542748e7/Application_Endpoints.png)
+![Application_Endpoints](/uploads/70296425a95aac25f832cd5bfbea4518/Application_Endpoints.png)
 
 ### Backend Auth
 
 ### Users Model
 
 ### Reviews Model
-The Reviews module provides a model for representing reviews. It includes attributes such as id, rating, title, and description.There is also a Update model as well which you can update the following "Title","Rating","Description".
+The Reviews module provides a model for representing reviews. It includes attributes such as:
+- id: unique identifier for the review, automatically generated using MongoDB
+- date: string
+- rating: an integer that allows customers to add a rating to a review
+- title: string; title of review
+- description: string; add text to a review
 
-Attributes
-Id - A unique identifier for the review, automatically generated using uuid4.
-Rating - An integer that allows you the give the review rating.
-Title - A string that you can write a review title.
-Description - A string that allows you to write a review description.
-
+The following properties can be updated: "title","rating", and "description".
 
 ### Orders Model
+The Orders model represents all of the properties required to create a custome surfboard order. These include:
+- order_id: unique identifier for the review, automatically generated using MongoDB 
+- date: string
+- reviewed: boolean; displays the status of whether the order has been reviewed or not
+- order_status: string; displays current status of order, as updated by the shaper
+- customer_username: string; name used when customer creates account
+- surfboard_shaper: string; name selected from options on form
+- surfboard_model: string; name of surfboard model
+- surfboard_length: int; number signifying length of board
+- surfboard_width: int, number signifying width of board
+- surfboard_thickness: int; number signifying thickness of board
+- surfboard_construction: string; describes the foam construction of the board
+- surfboard_fin_system: string; users select their desired modern fin system
+- surfboard_fin_count: int; number of fin plugs on board
+- surfboard_tail_style: string; users select from list of modern options
+- surfboard_glassing: string; users select from list of common options
+- surfboard_desc: string | optional; users can add additional details such as color, or other requests
 
+The only properties that can be updated on this model are whether the order has been reviewed or not, and what the status is.
