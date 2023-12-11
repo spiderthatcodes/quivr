@@ -12,7 +12,7 @@ const Cart = ({ cartCount, setShowCart }) => {
     <div onClick={() => handleClick()}>
       <Badge color="primary" fontSize="large" badgeContent={cartCount}>
         {/* <Badge style={{ color: 'white' }} badgeContent={count}> */}
-        <ShoppingCartIcon />{" "}
+        <ShoppingCartIcon fontSize="large" />{" "}
       </Badge>
     </div>
   );
