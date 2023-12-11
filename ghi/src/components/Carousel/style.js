@@ -7,8 +7,8 @@ export const CarouselContainer = styled.div`
 
   .container {
     display: flex;
-    gap: 53em;
-    padding-left: 24em;
+    gap: 55em;
+    padding-left: 23em;
   }
 `;
 
@@ -21,7 +21,7 @@ export const CarouselItem = styled.div`
   min-width: 100%;
   img {
     padding-top: 50px;
-    padding-left: 26em;
+    padding-left: 24em;
     width: 100vh;
   }
 `;
