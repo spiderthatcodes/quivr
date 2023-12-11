@@ -2,11 +2,12 @@ import styled from "styled-components";
 import Background from "../../images/pexels-pixabay-390051.jpg";
 
 export const Title = styled.h1`
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 35px;
-  letter-spacing: 3px;
-  color: white;
+  text-align: left;
+  font-family: "Lilita One", sans-serif;
+  font-size: 40px;
+  line-height: 3rem;
+  letter-spacing: 4px;
+  color: #fab616;
 `;
 
 export const LandContainer = styled.div`
