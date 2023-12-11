@@ -12,7 +12,7 @@ import Surfboard3 from "../../images/Surfboard3.webp";
 import Surfboard5 from "../../images/SurfBoard5.webp";
 // import SurfVan from "../../images/SurfVan.jpg";
 import Shaper from "../../images/Shaper.jpg";
-// import Carousel from "../../components/carousel/Carousel";
+import Carousel from "../../components/Carousel/Carousel";
 import Slider1 from "../../images/Slider1.png";
 import Slider2 from "../../images/Slider2.png";
 import Slider3 from "../../images/Slider3.png";
