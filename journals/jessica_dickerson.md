@@ -25,3 +25,7 @@ Lots of bug fixes today, added a dedicated page for the login rather than having
 # 12/4
 
 Working on the frontend review functionality. Will then work on the square implementation.
+
+# 12/11
+
+Working on the Readme. I have finished all of the functionality I care to do right now.
