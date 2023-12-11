@@ -3,15 +3,14 @@ import {
   Title,
   Div,
   LandBackground,
-  OurStory,
+  // OurStory,
   AboutUs,
 } from "./style";
 import Surfboard1 from "../../images/Surfboard1.webp";
 import Surfboard2 from "../../images/Surfboard2.webp";
 import Surfboard3 from "../../images/Surfboard3.webp";
-import Surfboard4 from "../../images/Surfboard4.webp";
 import Surfboard5 from "../../images/SurfBoard5.webp";
-import SurfVan from "../../images/SurfVan.jpg";
+// import SurfVan from "../../images/SurfVan.jpg";
 import Shaper from "../../images/Shaper.jpg";
 import Carousel from "../../components/Carousel/Carousel";
 import Slider1 from "../../images/Slider1.png";
@@ -25,7 +24,7 @@ const Landing = () => {
       <LandBackground>{/* <Title>Welcome to Quivr</Title> */}</LandBackground>
       <AboutUs>
         <div>
-          <Title>We make ordering surfboards fun again</Title>
+          <Title>We make ordering surfboards fun!</Title>
           <p>
             Now you can order a custom surfboard directly with a shaper of your
             choice, and receive real-time updates on the current status of your
@@ -40,7 +39,7 @@ const Landing = () => {
           <p>
             {" "}
             We bring much needed transparency to a process that has been flawed
-            for too long. Curious what the status of yur order is? Log in to
+            for too long. Curious what the status of your order is? Log in to
             find out.
           </p>
         </div>
@@ -53,13 +52,12 @@ const Landing = () => {
         <img src={Surfboard2} alt="" />
         <img src={Surfboard3} alt="" />
         <img src={Surfboard5} alt="" />
-        <img src={Surfboard4} alt="" />
       </Div>
-      <OurStory>
+      {/* <OurStory>
         <div>
           <h1>Our Story</h1>
           <p>
-            Nestled in Southern California, Quivr is more than a surfboard shop
+            Nestled in Northern California, Quivr is more than a surfboard shop
             - it's a passion project born from the love of the waves. Founded by
             Ian Norstad,Jessica Dickerson, and Micheal Aguilar, it began in a
             modest workshop and quickly grew into a haven for surfers seeking
@@ -77,7 +75,7 @@ const Landing = () => {
           </p>
         </div>
         <img src={SurfVan} alt="" />
-      </OurStory>
+      </OurStory> */}
     </LandContainer>
   );
 };
