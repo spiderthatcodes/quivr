@@ -3,7 +3,7 @@ import {
   Title,
   Div,
   LandBackground,
-  OurStory,
+  // OurStory,
   AboutUs,
 } from "./style";
 import Surfboard1 from "../../images/Surfboard1.webp";
@@ -11,7 +11,7 @@ import Surfboard2 from "../../images/Surfboard2.webp";
 import Surfboard3 from "../../images/Surfboard3.webp";
 import Surfboard4 from "../../images/Surfboard4.webp";
 import Surfboard5 from "../../images/SurfBoard5.webp";
-import SurfVan from "../../images/SurfVan.jpg";
+// import SurfVan from "../../images/SurfVan.jpg";
 import Shaper from "../../images/Shaper.jpg";
 import Carousel from "../../components/Carousel/Carousel";
 import Slider1 from "../../images/Slider1.png";
@@ -53,7 +53,6 @@ const Landing = () => {
         <img src={Surfboard2} alt="" />
         <img src={Surfboard3} alt="" />
         <img src={Surfboard5} alt="" />
-        {/* <img src={Surfboard4} alt="" /> */}
       </Div>
       {/* <OurStory>
         <div>
