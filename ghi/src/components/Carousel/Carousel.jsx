@@ -31,7 +31,7 @@ const Carousel = ({ items }) => {
         ))}
       </CarouselWrapper>
       <div className="container">
-        <IconButton k={prevSlide}>
+        <IconButton onClick={prevSlide}>
           <ArrowBackIosRoundedIcon fontSize="large" />
         </IconButton>
         <IconButton onClick={nextSlide}>

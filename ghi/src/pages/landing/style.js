@@ -7,7 +7,7 @@ export const Title = styled.h1`
   font-size: 40px;
   line-height: 3rem;
   letter-spacing: 4px;
-  color: #fab616;
+  color: #f58236;
 `;
 
 export const LandContainer = styled.div`
@@ -38,6 +38,10 @@ export const Div = styled.div`
     width: 20vh;
     margin: 8px;
     padding: 50px;
+  }
+
+  h1 {
+    color: #0d5274;
   }
 `;
 
