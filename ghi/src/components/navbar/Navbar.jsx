@@ -6,10 +6,9 @@ import {
   NavbarInnerContainer,
   NavbarLinkContainer,
   NavbarLink,
+  LogoutLink,
   Logo,
-  Button,
 } from "./style";
-// import LogoImg from "../../images/logo.png";
 import QuivrLogo from "../../images/Quivr_logo2.png";
 import { useLogoutMutation, useGetTokenQuery } from "../../app/authSlice";
 import { useNavigate, Link } from "react-router-dom";
@@ -41,19 +40,17 @@ function Navbar() {
               <NavbarLink to="/users">User</NavbarLink>
             </div>
             <div className={!account ? "vis" : "hidden"}>
-              <Button>
-                <Link to="/login">Login</Link>
-              </Button>
+              <NavbarLink to="/login">Login</NavbarLink>
             </div>
             <div className={account ? "vis" : "hidden"}>
-              <Button
+              <LogoutLink
                 onClick={() => {
                   logout();
                   navigate("/");
                 }}
               >
                 Logout
-              </Button>
+              </LogoutLink>
             </div>
           </NavbarLinkContainer>
         </RightContainer>

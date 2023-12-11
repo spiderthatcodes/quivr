@@ -1,6 +1,8 @@
 import Orderboard from "../../images/Orderboard.png";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { IconButton } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useCreateOrderMutation } from "../../app/ordersSlice";
 
 import {
   Wrapper,
@@ -21,9 +23,18 @@ import {
   StyledTotal,
 } from "./style";
 
-const CartDetails = ({ order, setShowCart, addToCart }) => {
+const CartDetails = ({ order, setShowCart, addToCart, setAddToCart }) => {
   const price = 849;
   const subtotal = price * addToCart.length;
+  const [createOrder, result] = useCreateOrderMutation();
+  const navigate = useNavigate();
+
+  async function handleCreate(e) {
+    e.preventDefault();
+    createOrder(addToCart[0]);
+    setAddToCart([]);
+    navigate("/order-history");
+  }
 
   return (
     <Wrapper>
@@ -32,7 +43,7 @@ const CartDetails = ({ order, setShowCart, addToCart }) => {
       ) : (
         <CartContainer>
           <div>
-            <h1 id="your-cart">Cart Contents...Get Stoked!</h1>
+            <h1>Cart Contents... Get Stoked!</h1>
           </div>
           <StyleTable>
             <STHead>
@@ -69,7 +80,7 @@ const CartDetails = ({ order, setShowCart, addToCart }) => {
             <P1>Subtotal</P1>
             <P2>${subtotal}.00</P2>
           </StyledTotal>
-          <Button1 onClick={() => console.log("pay-me")}>Checkout</Button1>
+          <Button1 onClick={(e) => handleCreate(e)}>Checkout</Button1>
         </CartContainer>
       )}
       <IconButton

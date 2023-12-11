@@ -34,7 +34,6 @@ const OrderCreate = () => {
   const [surfboard_desc, setDesc] = useState("");
   const [addToCart, setAddToCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
-  // const [createOrder, result] = useCreateOrderMutation();
 
   if (isLoading || isTokenLoading) return <div>Loading...</div>;
 
@@ -52,7 +51,7 @@ const OrderCreate = () => {
     setDesc("");
   };
 
-  async function handleSubmit(e) {
+  async function handleAdd(e) {
     e.preventDefault();
     const order = {
       surfboard_shaper,
@@ -85,6 +84,7 @@ const OrderCreate = () => {
             showCart={showCart}
             setShowCart={setShowCart}
             addToCart={addToCart}
+            setAddToCart={setAddToCart}
           />
         )}
 
@@ -112,7 +112,7 @@ const OrderCreate = () => {
           setGlassing={setGlassing}
           surfboard_desc={surfboard_desc}
           setDesc={setDesc}
-          handleSubmit={handleSubmit}
+          handleAdd={handleAdd}
           handleClear={handleClear}
         />
       </Wrapper>

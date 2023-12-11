@@ -13,7 +13,7 @@ export const Title = styled.h1`
 export const LandContainer = styled.div`
   #quote {
     text-align: center;
-    font-family: "Luckiest Guy", cursive;
+    font-family: "Montserrat", sans-serif;
     font-size: 35px;
     margin: 0;
   }
@@ -42,6 +42,7 @@ export const Div = styled.div`
 
   h1 {
     color: #0d5274;
+    font-family: "Montserrat", sans-serif;
   }
 `;
 
@@ -86,5 +87,6 @@ export const AboutUs = styled.div`
   }
   p {
     font-size: 20px;
+    font-family: "Montserrat", sans-serif;
   }
 `;

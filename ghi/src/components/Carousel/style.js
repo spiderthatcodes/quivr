@@ -6,10 +6,9 @@ export const CarouselContainer = styled.div`
   background-color: #f7e7be;
 
   .container {
-    /* width: 50%; */
     display: flex;
-    gap: 56em;
-    padding-left: 29em;
+    gap: 53em;
+    padding-left: 24em;
   }
 `;
 
@@ -22,7 +21,7 @@ export const CarouselItem = styled.div`
   min-width: 100%;
   img {
     padding-top: 50px;
-    padding-left: 31em;
+    padding-left: 26em;
     width: 100vh;
   }
 `;

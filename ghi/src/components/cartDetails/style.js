@@ -9,11 +9,13 @@ export const Wrapper = styled.div`
   background: #e3f5fd;
   padding: 5em 10em;
   z-index: 2;
+  font-family: "Montserrat", sans-serif;
 
   h2 {
     text-align: start;
     font-size: 28px;
     color: #0d5274;
+    font-family: "Montserrat", sans-serif;
   }
 `;
 
@@ -21,7 +23,12 @@ export const CartContainer = styled.div`
   display: flex;
   /* overflow-y: scroll; */
   display: grid;
-  color: #0d5274;
+
+  h1 {
+    color: #0d5274;
+    font-family: "Lilita One", sans-serif;
+    letter-spacing: 2px;
+  }
 `;
 
 export const StyleTable = styled.table`
