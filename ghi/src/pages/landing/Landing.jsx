@@ -9,7 +9,6 @@ import {
 import Surfboard1 from "../../images/Surfboard1.webp";
 import Surfboard2 from "../../images/Surfboard2.webp";
 import Surfboard3 from "../../images/Surfboard3.webp";
-import Surfboard4 from "../../images/Surfboard4.webp";
 import Surfboard5 from "../../images/SurfBoard5.webp";
 // import SurfVan from "../../images/SurfVan.jpg";
 import Shaper from "../../images/Shaper.jpg";
