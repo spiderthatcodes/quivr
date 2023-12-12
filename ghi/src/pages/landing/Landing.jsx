@@ -1,16 +1,8 @@
-import {
-  LandContainer,
-  Title,
-  Div,
-  LandBackground,
-  // OurStory,
-  AboutUs,
-} from "./style";
+import { LandContainer, Title, Div, LandBackground, AboutUs } from "./style";
 import Surfboard1 from "../../images/Surfboard1.webp";
 import Surfboard2 from "../../images/Surfboard2.webp";
 import Surfboard3 from "../../images/Surfboard3.webp";
 import Surfboard5 from "../../images/SurfBoard5.webp";
-// import SurfVan from "../../images/SurfVan.jpg";
 import Shaper from "../../images/Shaper.jpg";
 import Carousel from "../../components/Carousel/Carousel";
 import Slider1 from "../../images/Slider1.png";
@@ -21,7 +13,7 @@ const Landing = () => {
   const items = [Slider1, Slider2, Slider3];
   return (
     <LandContainer>
-      <LandBackground>{/* <Title>Welcome to Quivr</Title> */}</LandBackground>
+      <LandBackground>{""}</LandBackground>
       <AboutUs>
         <div>
           <Title>We make ordering surfboards fun!</Title>
@@ -53,29 +45,6 @@ const Landing = () => {
         <img src={Surfboard3} alt="" />
         <img src={Surfboard5} alt="" />
       </Div>
-      {/* <OurStory>
-        <div>
-          <h1>Our Story</h1>
-          <p>
-            Nestled in Northern California, Quivr is more than a surfboard shop
-            - it's a passion project born from the love of the waves. Founded by
-            Ian Norstad,Jessica Dickerson, and Micheal Aguilar, it began in a
-            modest workshop and quickly grew into a haven for surfers seeking
-            personalized boards. Each surfboard at Quivr is a masterpiece,
-            carefully crafted from premium materials with a blend of tradition
-            and innovation. The shop isn't just about boards; it's a community
-            hub, hosting events and workshops that bring surfers together.
-            Adapting to changing times, Quivr embraces eco-friendly practices
-            and collaborates with local artists, staying true to authenticity.
-            Today, it stands as a testament to enduring passion and the pursuit
-            of the perfect ride. As the sun sets, the workshop lights flicker,
-            illuminating boards waiting to ride the waves. Quivr continues its
-            journey - crafting waves, shaping dreams, and celebrating the
-            timeless connection between surfers and the sea.
-          </p>
-        </div>
-        <img src={SurfVan} alt="" />
-      </OurStory> */}
     </LandContainer>
   );
 };
