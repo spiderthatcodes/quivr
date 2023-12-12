@@ -8,7 +8,6 @@ const UserRow = ({ item, role }) => {
             </td>
             {role === 'shaper' ? (
                 <>
-                    {/* This is mock data and needs to be updated with dynamic values */}
                     <td>1</td>
                     <td>2</td>
                 </>
