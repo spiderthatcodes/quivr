@@ -62,7 +62,6 @@ export const OrderFormStyle = styled.div`
 `;
 
 export const Container1 = styled.div`
-  /* flex: 50%; */
   display: flex;
   justify-content: flex-start;
 `;

@@ -85,7 +85,6 @@ export const OpenLinksButton = styled.button`
   background: none;
   border: none;
   color: white;
-  /* font-weight: bold; */
   font-size: 30px;
   cursor: pointer;
 

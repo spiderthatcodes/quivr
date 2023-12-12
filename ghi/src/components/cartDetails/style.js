@@ -28,7 +28,6 @@ export const Wrapper = styled.div`
 
 export const CartContainer = styled.div`
   display: flex;
-  /* overflow-y: scroll; */
   display: grid;
 
   h1 {
@@ -47,26 +46,19 @@ export const StyleTable = styled.table`
 `;
 
 export const STHead = styled.thead`
-  /* position: sticky; */
-  /* border: 1px; */
-  /* background-color: #c8d7de; */
   background-color: #f5fde3;
   z-index: 100;
   text-align: left;
 `;
 
-export const STHeadTR = styled.tr`
-  /* background-color: lightgrey; */
-`;
+export const STHeadTR = styled.tr``;
 
 export const STH = styled.th`
   padding: 20px;
-  /* color: white; */
 `;
 
 export const STH1 = styled.th`
   padding: 20px 0 20px 105px;
-  /* color: white; */
 `;
 
 export const STBody = styled.tbody``;
@@ -79,7 +71,6 @@ export const STD1 = styled.td`
   width: 25%;
 
   img {
-    /* padding-left: 100px; */
     margin-left: 55px;
     padding-top: 3px;
     height: 150px;

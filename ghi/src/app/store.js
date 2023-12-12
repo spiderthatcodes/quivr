@@ -6,15 +6,15 @@ import { ordersApi } from "./ordersSlice";
 
 export const store = configureStore({
   reducer: {
-    [ordersApi.reducerPath]: ordersApi.reducer, // orders state
-    [reviewsApi.reducerPath]: reviewsApi.reducer, // reviews state
-    [authApi.reducerPath]: authApi.reducer, // auth state
+    [ordersApi.reducerPath]: ordersApi.reducer,
+    [reviewsApi.reducerPath]: reviewsApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(reviewsApi.middleware)
       .concat(authApi.middleware)
-      .concat(ordersApi.middleware)
+      .concat(ordersApi.middleware),
 });
 
 setupListeners(store.dispatch);
