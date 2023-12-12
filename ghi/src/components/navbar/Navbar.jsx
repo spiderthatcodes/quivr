@@ -11,7 +11,7 @@ import {
 } from "./style";
 import QuivrLogo from "../../images/Quivr_logo2.png";
 import { useLogoutMutation, useGetTokenQuery } from "../../app/authSlice";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
