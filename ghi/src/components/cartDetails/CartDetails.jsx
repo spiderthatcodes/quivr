@@ -29,6 +29,7 @@ const CartDetails = ({ order, setShowCart, addToCart, setAddToCart }) => {
   const subtotal = price * addToCart.length;
   const [createOrder, result] = useCreateOrderMutation();
   const [errorMessage, setErrorMessage] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const CartDetails = ({ order, setShowCart, addToCart, setAddToCart }) => {
     } else if (result.isError) {
       setErrorMessage("There was an error creating your order");
     }
-  }, [result]);
+  }, [result, navigate, setAddToCart]);
 
   const handleCreate = async (e) => {
     e.preventDefault();
