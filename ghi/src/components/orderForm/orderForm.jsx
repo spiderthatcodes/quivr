@@ -197,11 +197,7 @@ export default function OrderForm({
           <Buttons>
             <button onClick={(e) => handleAdd(e)}>Add to cart</button>
             <br />
-
             <button onClick={() => handleClear()}>Clear</button>
-            {/* {error ? (
-          <div>There was an error creating your order. {error}</div>
-        ) : null} */}
           </Buttons>
         </Container3>
       </OrderFormStyle>

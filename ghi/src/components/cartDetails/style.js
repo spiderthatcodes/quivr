@@ -17,6 +17,13 @@ export const Wrapper = styled.div`
     color: #0d5274;
     font-family: "Montserrat", sans-serif;
   }
+
+  h3 {
+    text-align: start;
+    font-size: 20px;
+    color: red;
+    font-family: "Montserrat", sans-serif;
+  }
 `;
 
 export const CartContainer = styled.div`
