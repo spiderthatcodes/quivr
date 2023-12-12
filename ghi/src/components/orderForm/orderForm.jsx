@@ -1,5 +1,5 @@
 import { OrderFormStyle } from "./style";
-import { Container1, Container2, Container3,Buttons } from "./style";
+import { Container1, Container2, Container3, Buttons } from "./style";
 import Orderboard from "../../images/Orderboard.png";
 
 export default function OrderForm({
@@ -26,7 +26,7 @@ export default function OrderForm({
   surfboard_glassing,
   setDesc,
   surfboard_desc,
-  handleSubmit,
+  handleAdd,
   handleClear,
 }) {
   return (
@@ -195,13 +195,9 @@ export default function OrderForm({
           <br />
           <img src={Orderboard} alt="" />
           <Buttons>
-            <button onClick={(e) => handleSubmit(e)}>Add to cart</button>
+            <button onClick={(e) => handleAdd(e)}>Add to cart</button>
             <br />
-
             <button onClick={() => handleClear()}>Clear</button>
-            {/* {error ? (
-          <div>There was an error creating your order. {error}</div>
-        ) : null} */}
           </Buttons>
         </Container3>
       </OrderFormStyle>
