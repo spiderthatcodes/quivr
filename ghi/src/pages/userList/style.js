@@ -3,7 +3,7 @@ import Background from '../../images/UserList.jpg';
 
 export const ImgBackground = styled.div`
     background-image: url(${Background});
-    height: 60vh;
+    min-height: 60vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;

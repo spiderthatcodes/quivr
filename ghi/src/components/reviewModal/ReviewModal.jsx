@@ -32,8 +32,8 @@ const ReviewModal = ({ setShowModal, shaper, orderId }) => {
 
     return (
         <ModalContainer>
-            <h1>Leave a Review</h1>
             <h2 onClick={() => setShowModal(false)}>X</h2>
+            <h1>Leave a Review</h1>
             <StarRating
                 rating={starrating}
                 setRating={setRating}

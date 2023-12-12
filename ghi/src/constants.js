@@ -64,11 +64,15 @@ export const ModalContainer = styled.div`
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #66BCD2;
   padding: 80px 100px;
   border-radius: 8px;
-  border: 8px solid #df6b3a;
+  border: 5px solid #F1E9D3;
   z-index: 1000;
+  h2{
+    display: flex;
+    justify-content: end;
+  }
 `;
 
 export const AccountForm = styled.div`
@@ -77,14 +81,14 @@ export const AccountForm = styled.div`
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background-color: #0d5274;
+  background-color: #002446;
   color: #f7e7be;
   text-align: center;
   align-items: center;
   padding: 32px 80px;
   border-radius: 8px;
   text-align: left;
-  opacity: 0.9;
+  /* opacity: 0.9; */
 
   h1 {
     text-align: center;
