@@ -35,7 +35,15 @@ const AddUserModal = ({ setShowModal }) => {
     return (
         <ModalContainer>
             <AccountForm>
-                <h1>Welcome!</h1>
+                <div id='top'>
+                    <h1>Create New User</h1>
+                    <h1
+                        id='close'
+                        onClick={() => setShowModal(false)}
+                    >
+                        X
+                    </h1>
+                </div>
                 <p>Username:</p>
                 <input
                     type='text'

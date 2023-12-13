@@ -1,6 +1,13 @@
 import React from 'react';
+import { useDeleteAccountMutation } from '../../app/authSlice';
 
 const UserRow = ({ item, role }) => {
+    const [deleteUser] = useDeleteAccountMutation();
+
+    const handleDelete = (username) => {
+        deleteUser(username);
+    };
+
     return (
         <tr>
             <td>
@@ -16,6 +23,13 @@ const UserRow = ({ item, role }) => {
             )}
             <td>{item.email}</td>
             <td>{item.phone_number}</td>
+            {role === 'admin' && (
+                <td>
+                    <button onClick={() => handleDelete(item.username)}>
+                        Delete
+                    </button>
+                </td>
+            )}
         </tr>
     );
 };
